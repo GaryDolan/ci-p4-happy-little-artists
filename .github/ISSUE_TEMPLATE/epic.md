@@ -10,7 +10,7 @@ assignees: GaryDolan
 As a **role** I can **capability** so that **received benefit**
 
 # Acceptance Criteria: 
-1. All the must have user stories withing this epic and all tasks associated with these user stories have been completed.
+1. All the must-have user stories within this epic, and all tasks associated with these user stories, have been completed.
 
 
 # Tasks:
