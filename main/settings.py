@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
 
+    # Other
+    'cloudinary',
+    'django_summernote',
+   
     # Apps
     'about_us',
     'authentication',
@@ -55,8 +59,7 @@ INSTALLED_APPS = [
     'home',
     'profiles',
 
-    # Other
-    'cloudinary',
+    
 
 ]
 
