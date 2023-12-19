@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+from django_resized import ResizedImageField
 
 # Tuple to control posts status
 STATUS = ((0, "Draft"), (1, "Published"), (2, "Archived"))
@@ -11,12 +11,12 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     description = models.CharField(max_length=200, help_text='Enter a brief post description')
-    featured_img= CloudinaryField('image', default='placeholder')
-    additional_img1 = CloudinaryField('image', blank=True)
-    additional_img2 = CloudinaryField('image', blank=True)
-    additional_img3 = CloudinaryField('image', blank=True)
-    additional_img4 = CloudinaryField('image', blank=True)
-    additional_img5 = CloudinaryField('image', blank=True)
+    featured_img = ResizedImageField(quality=100, upload_to="p4/post_images/", force_format='WEBP')
+    additional_img1 = ResizedImageField(quality=100, upload_to="p4/post_images/", force_format='WEBP', blank=True)
+    additional_img2 = ResizedImageField(quality=100, upload_to="p4/post_images/", force_format='WEBP', blank=True)
+    additional_img3 = ResizedImageField(quality=100, upload_to="p4/post_images/", force_format='WEBP', blank=True)
+    additional_img4 = ResizedImageField(quality=100, upload_to="p4/post_images/", force_format='WEBP', blank=True)
+    additional_img5 = ResizedImageField(quality=100, upload_to="p4/post_images/", force_format='WEBP', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
     content = models.TextField(help_text='Enter the post text here')
