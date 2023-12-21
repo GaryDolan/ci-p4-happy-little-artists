@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    /* Fonts */
+    --heading-font: "Love Ya Like A Sister", serif;
+    --text-font: "Raleway", serif;
+
+    /* Colours */
+    --green: #266441;
+    --green-faded: rgba(38, 100, 65, 0.1);
+    --purple: #8402cf;
+    --off-white: #f5f5f5;
+}
+/************************** GLOBAL ************************/
+/* anchors */
+a {
+    text-decoration: none;
+}
+
+/* horizontal rules */
+.custom-hr {
+    border: 0.1rem solid var(--green);
+}
+
+/*************************** BASE *************************/
+/* header */
+header h1,
+p {
+    color: var(--green);
+    font-family: var(--heading-font);
+}
+
+header h1 {
+    font-size: 4rem;
+}
+
+header p {
+    font-size: 2rem;
+}
+
+/* Nav bar */
+.nav-link {
+    font-family: var(--text-font);
+    color: var(--green);
+    border-radius: 1rem;
+    background-color: transparent;
+    transition: background-color 400ms, font-weights;
+}
+
+.nav-link:hover {
+    color: black;
+    background-color: var(--green-faded);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.active {
+    text-decoration: underline solid var(--green);
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.3rem;
+    font-weight: bold;
+}
+
+.active:hover {
+    text-decoration: none;
+}
+
+.navbar-brand {
+    color: var(--green);
+    font-family: var(--heading-font);
+    font-size: 3rem;
+    text-decoration: underline solid var(--green);
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.9rem;
+}
+
+/************************* MEDIA QUERIES ***********************/
+/* BASE */
+/* 767px md */
+@media screen and (max-width: 47.938em) {
+    .nav-link {
+        padding-left: 0.5em;
+    }
+    .nav-link:hover {
+        transform: scale(1);
+    }
+}
+
+/* 575px sm */
+@media screen and (max-width: 35.938em) {
+    .navbar-brand {
+        font-size: 2.5rem;
+        text-underline-offset: 0.8rem;
+    }
+}
+
+/* 475px */
+@media screen and (max-width: 29.688em) {
+    .navbar-brand {
+        font-size: 2rem;
+        text-underline-offset: 0.7rem;
+    }
+}
+
+/* 402px */
+@media screen and (max-width: 25.125em) {
+    .navbar-brand {
+        font-size: 1.4rem;
+        text-underline-offset: 0.5rem;
+    }
+}
