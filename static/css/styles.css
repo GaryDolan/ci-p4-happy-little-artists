@@ -8,19 +8,27 @@
     /* Colours */
     --off-white: #f5f5f5;
     --green: #266441;
+    --green-slightly-faded: rgba(38, 100, 65, 0.8);
     --green-faded: rgba(38, 100, 65, 0.1);
     --green-bright: #16f530;
+    --green-bright-slightly-faded: rgba(22, 245, 48, 0.8);
     --green-bright-faded: rgba(22, 245, 48, 0.3);
     --purple: #8402cf;
+    --purple-slightly-faded: rgba(132, 2, 207, 0.8);
     --purple-faded: rgba(132, 2, 207, 0.3);
     --yellow: #f5df16;
     --yellow-faded: rgba(245, 223, 22, 0.3);
     --orange: #f29018;
+    --orange-slightly-faded: rgba(242, 144, 24, 0.8);
     --orange-faded: rgba(242, 144, 24, 0.3);
     --blue: #1536ed;
+    --blue-slightly-faded: rgba(21, 54, 237, 0.8);
     --blue-faded: rgba(21, 54, 237, 0.3);
     --red: #ed2415;
+    --red-sllightly-faded: rgba(237, 36, 21, 0.8);
     --red-faded: rgba(237, 36, 21, 0.3);
+    --red-dark: #d32f2f;
+    --red-dark-slightly-faded: rgba(211, 47, 47, 0.8);
 
     /* background colours */
     --rainbow-gradient: linear-gradient(
@@ -34,20 +42,97 @@
     );
 }
 
+/********************* Utility Classes *******************/
+/* Text colours */
+.text-white {
+    color: white;
+}
 .text-off-white {
     color: var(--off-white);
 }
-
 .text-green {
     color: var(--green);
 }
-
+.text-green-b {
+    color: var(--green-bright);
+}
+.text-purple {
+    color: var(--purple);
+}
+.text-yellow {
+    color: var(--yellow);
+}
+.text-orange {
+    color: var(--orange);
+}
+.text-blue {
+    color: var(--blue);
+}
 .text-red {
     color: var(--red);
 }
 
+/* Background colours */
+.bg-off-white {
+    background-color: var(--off-white);
+}
 .bg-green {
     background-color: var(--green);
+}
+.bg-green-b {
+    background-color: var(--green-bright);
+}
+.bg-purple {
+    background-color: var(--purple);
+}
+.bg-yellow {
+    background-color: var(--yellow);
+}
+.bg-orange {
+    background-color: var(--orange);
+}
+.bg-blue {
+    background-color: var(--blue);
+}
+.bg-red {
+    background-color: var(--red);
+}
+
+/* Background colours slightly faded  */
+.bg-green-sf {
+    background-color: var(--green-slightly-faded);
+}
+.bg-purple-sf {
+    background-color: var(--purple-slightly-faded);
+}
+.bg-blue-sf {
+    background-color: var(--blue-slightly-faded);
+}
+.bg-red-d-sf {
+    background-color: var(--red-dark-slightly-faded);
+}
+
+/* Background colours faded  */
+.bg-green-f {
+    background-color: var(--green-faded);
+}
+.bg-green-b-f {
+    background-color: var(--green-bright-faded);
+}
+.bg-purple-f {
+    background-color: var(--purple-faded);
+}
+.bg-yellow-f {
+    background-color: var(--yellow-faded);
+}
+.bg-orange-f {
+    background-color: var(--orange-faded);
+}
+.bg-blue-f {
+    background-color: var(--blue-faded);
+}
+.bg-red-f {
+    background-color: var(--red-faded);
 }
 
 /************************** GLOBAL ************************/
@@ -61,12 +146,17 @@ h6 {
     font-family: var(--heading-font);
 }
 
-/* anchors */
+/* Paragraphs */
+p {
+    font-family: var(--text-font);
+}
+
+/* Anchors */
 a {
     text-decoration: none;
 }
 
-/* horizontal rules */
+/* Horizontal rules */
 .custom-hr {
     color: var(--green);
     border-width: 0.2rem;
@@ -74,7 +164,7 @@ a {
 */
 
 /*************************** BASE *************************/
-/* header */
+/* Header */
 header h1 {
     font-size: 4rem;
 }
@@ -160,6 +250,7 @@ header h1 {
     -webkit-background-clip: text; /* Chrome/Safari */
     -ms-background-clip: text; /* IE */
 }
+
 /* Footer */
 footer h2 {
     color: var(--off-white);
@@ -167,7 +258,7 @@ footer h2 {
 
 /* Social icons */
 .social-icons a {
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
 }
 
 .facebook-icon {
@@ -217,7 +308,22 @@ footer h2 {
     background: #0866ff;
 }
 
-/************************* MEDIA QUERIES ***********************/
+/************************* CLUB NEWS ***********************/
+.club-news-intro {
+    text-align: justify;
+}
+
+.club-news-posts h5 {
+    color: white;
+    font-weight: 800;
+    font-family: sans-serif;
+}
+.club-news-posts p {
+    color: white;
+    font-weight: 600;
+}
+
+/*********************** MEDIA QUERIES *********************/
 /* BASE */
 /* 767px md */
 @media screen and (max-width: 47.938em) {
@@ -245,7 +351,7 @@ footer h2 {
         font-size: 0.75em;
     }
     .social-icons a {
-        margin-right: 0.5rem;
+        /* margin-right: 0.5rem; */
     }
 }
 
@@ -253,5 +359,17 @@ footer h2 {
 @media screen and (max-width: 22.875em) {
     .navbar-brand {
         font-size: 1.65em;
+    }
+    .social-icons a {
+        /* margin-right: 0.33rem; */
+    }
+}
+
+/* CLUB_NEWS */
+/* 992px */
+/* 767px md */
+@media screen and (max-width: 62em) {
+    .club-news-posts h5 {
+        font-size: 1em;
     }
 }

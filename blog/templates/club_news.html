@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Club News{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <!-- Club News Welcome -->
+    <section class="club-news-welcome">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center text-green">Club News</h2>
+                <p class="club-news-intro d-none d-sm-block px-1">Here at Happy Little Artists, we like to keep you up
+                    to
+                    date about
+                    our weekly
+                    classes and your little
+                    one's progress. Below, you can explore our new articles, discover exciting art projects, and
+                    stay
+                    informed about upcoming events. Join our vibrant community of creative minds as we share tips,
+                    showcase masterpieces, and celebrate the joy of artistic expression.
+                    <br><br>
+                    Whether your child is just starting their artistic journey or has been with us for a while,
+                    we're
+                    committed to nurturing their
+                    creativity and providing a platform for their imagination to flourish. Stay tuned for the latest
+                    updates, and let the artistic adventure continue.
+                </p>
+                <p class="club-news-intro d-block d-sm-none px-1">
+                    Here at Happy Little Artists, we like to keep you up to date about our weekly classes and your
+                    little one's progress.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Club News Posts -->
+    <section class="club-news-posts container mt-2">
+        <!-- Newest post -->
+        <div class="row d-flex justify-content-center">
+            {% for post in posts %}
+            {% if forloop.first %}
+            <div class="col-md-6 position-relative">
+                <article class="card border-secondary mb-2">
+                    <a href="#">
+                        <img src="{{ post.featured_img.url }}" class=" img-fluid newest-post-img"
+                            alt="{{ post.title }}">
+
+                        <div class="position-absolute bottom-0 start-0 w-100 p-3 text-center bg-green-sf">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text d-none d-lg-block">{{ post.description }}</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- other posts -->
+        <div class="row mt-3 d-flex justify-content-center">
+            {% for post in posts|slice:"1:" %}
+            <div class="col-md-4 col-12 d-flex position-relative">
+                <article class="card border-secondary mb-4 flex-fill">
+                    <a href="">
+                        <img src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
+                        <div
+                            class="position-absolute bottom-0 start-0 w-100 p-3 text-center {% cycle 'bg-purple-sf' 'bg-blue-sf' 'bg-red-d-sf' %}">
+                            <h5 class="card-title mb-0">{{ post.title }}</h5>
+                        </div>
+                    </a>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Pagination -->
+    <!-- Code taken from I think therefore I blog walkthrough -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% endblock %}
