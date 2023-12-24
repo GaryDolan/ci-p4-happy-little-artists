@@ -10,22 +10,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-sm-10">
                 <h2 class="text-center text-green">Club News</h2>
-                <p class="d-none d-sm-block px-1 text-grey">Here at Happy Little Artists, we like to keep
-                    you up
-                    to
-                    date about
-                    our weekly
-                    classes and your little
-                    one's progress. Below, you can explore our new articles, discover exciting art projects, and
-                    stay
-                    informed about upcoming events. Join our vibrant community of creative minds as we share tips,
-                    showcase masterpieces, and celebrate the joy of artistic expression.
-
-                    Whether your child is just starting their artistic journey or has been with us for a while,
-                    we're
-                    committed to nurturing their
-                    creativity and providing a platform for their imagination to flourish. Stay tuned for the latest
-                    updates, and let the artistic adventure continue.
+                <p class="d-none d-sm-block px-1 text-grey">Here at Happy Little Artists, we like to keep you up to date
+                    about our weekly classes and your little one's progress. Below, you can explore our new articles,
+                    discover exciting art projects, and stay informed about upcoming events. Join our vibrant community
+                    of creative minds as we share tips, showcase masterpieces, and celebrate the joy of artistic
+                    expression. Stay tuned for the latest updates, and let the artistic adventure continue.
                 </p>
                 <p class="d-block d-sm-none px-1 text-grey">
                     Here at Happy Little Artists, we like to keep you up to date about our weekly classes and your
@@ -43,7 +32,7 @@
             {% if forloop.first %}
             <div class="col-lg-6 col-md-10 position-relative">
                 <article class="card border-secondary mb-2">
-                    <a href="#">
+                    <a href="{% url 'post_detail' post.slug %}">
                         <img src="{{ post.featured_img.url }}" class=" img-fluid newest-post-img"
                             alt="{{ post.title }}">
 
@@ -63,7 +52,7 @@
             {% for post in posts|slice:"1:" %}
             <div class="col-lg-4 col-md-10 d-flex position-relative">
                 <article class="card border-secondary mb-4 flex-fill">
-                    <a href="">
+                    <a href="{% url 'post_detail' post.slug %}">
                         <img src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
                         <div
                             class="position-absolute bottom-0 start-0 w-100 p-3 text-center {% cycle 'bg-purple-sf' 'bg-blue-sf' 'bg-red-d-sf' %}">

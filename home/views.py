@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views import generic, View
 from blog.models import Post
 
-class IndexView(generic.View):
+class IndexView(View):
     
     def get(self, request):
         recent_posts = Post.objects.filter(status=1).order_by('-created_on')[:4]
