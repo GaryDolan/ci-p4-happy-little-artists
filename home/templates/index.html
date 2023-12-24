@@ -5,4 +5,83 @@
 {% block content %}
 
 
+<div class="container-fluid mt-4">
+    <!-- Hero Section -->
+    <section>
+        <div class="row mt-3 mb-5">
+            <div class="col d-flex justify-content-center align-items-center position-relative">
+                <img class="img-fluid"
+                    src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1703355139/media/p4/hero-image_tpcazv.webp"
+                    alt="Boy painting a picture">
+                <div class="position-absolute bottom-0 btn-book-wrapper">
+                    <a href="#">
+                        <button class="btn btn-lg d-none d-sm-block btn-book">Book Now</button>
+                        <button class="btn btn-sm d-sm-none btn-book">Book Now</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome section -->
+    <section class="club-news-welcome">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-md-10">
+                <h2 class="text-center text-green">Welcome to the club</h2>
+                <div class="d-none d-sm-block px-1 text-grey">
+                    <p>Welcome to a world where creativity knows no bounds and imagination takes flight—welcome to Happy
+                        Little Artists Art Club! We are an art club designed especially for children aged 5-10, where
+                        each young artist is encouraged to embark on a colorful journey of self-expression and
+                        discovery.
+
+                        Our club is not just about creating beautiful masterpieces; it's about fostering a lifelong love
+                        for art in all its wondrous forms. We are dedicated to nurturing the budding creativity within
+                        each child, providing a space where they can explore, experiment, and find joy in their artistic
+                        endeavors.
+                    </p>
+                    <p class="text-center">Ready to Ignite Your Child's Creativity? <a class="text-purple bold"
+                            href=" #">Book
+                            Now</a> and Join the Fun!</p>
+                    </p>
+                </div>
+                <div class="d-block d-sm-none px-1 text-grey">
+                    <p>
+                        Welcome to a world where creativity knows no bounds and imagination takes flight—welcome to
+                        Happy
+                        Little Artists Art Club!
+                    <p class="text-center">Ready to Ignite Your Child's Creativity? <a class="text-purple bold"
+                            href=" #">Book
+                            Now</a> and Join the Fun!</p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="container mt-4">
+    <!-- Recent posts -->
+    <h2 class="text-center text-green">Recent News</h2>
+    <section class="recent-news-posts">
+        <div class="row mt-3 d-flex justify-content-center">
+            {% for post in recent_posts %}
+            <div class="col-xl-3 col-md-6 d-flex position-relative">
+                <article class="card border-secondary mb-4 flex-fill">
+                    <a href="">
+                        <img src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
+                        <div
+                            class="position-absolute bottom-0 start-0 w-100 p-3 text-center {% cycle 'bg-green-sf' 'bg-purple-sf' 'bg-blue-sf' 'bg-red-d-sf' %}">
+                            <h5 class="card-title mb-0">{{ post.title }}</h5>
+                        </div>
+                    </a>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+
+
+
+
 {% endblock %}

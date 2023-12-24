@@ -29,6 +29,7 @@
     --red-faded: rgba(237, 36, 21, 0.3);
     --red-dark: #d32f2f;
     --red-dark-slightly-faded: rgba(211, 47, 47, 0.8);
+    --grey: #595959;
 
     /* background colours */
     --rainbow-gradient: linear-gradient(
@@ -70,6 +71,9 @@
 }
 .text-red {
     color: var(--red);
+}
+.text-grey {
+    color: var(--grey);
 }
 
 /* Background colours */
@@ -135,6 +139,15 @@
     background-color: var(--red-faded);
 }
 
+/* Text formatting */
+.justify-text {
+    text-align: justify;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 /************************** GLOBAL ************************/
 /* Headings */
 h1,
@@ -144,6 +157,10 @@ h4,
 h5,
 h6 {
     font-family: var(--heading-font);
+}
+
+h2 {
+    font-size: 1.75rem;
 }
 
 /* Paragraphs */
@@ -161,16 +178,17 @@ a {
     color: var(--green);
     border-width: 0.2rem;
 }
-*/
 
 /*************************** BASE *************************/
 /* Header */
-header h1 {
+.header-brand h1 {
     font-size: 4rem;
+    color: var(--green);
 }
 
-.header-brand h1,
 .header-brand p {
+    font-family: var(--heading-font);
+    font-size: 2rem;
     color: var(--green);
 }
 
@@ -184,11 +202,6 @@ header h1 {
     -webkit-background-clip: text; /* Chrome/Safari */
     -ms-background-clip: text; /* IE */
     transform: scale(1.1);
-}
-
-.header-brand p {
-    font-family: var(--heading-font);
-    font-size: 2rem;
 }
 
 /* Nav bar */
@@ -308,32 +321,87 @@ footer h2 {
     background: #0866ff;
 }
 
-/************************* CLUB NEWS ***********************/
-.club-news-intro {
-    text-align: justify;
+/*************************** HOME *************************/
+.btn-book {
+    border: 0.1rem solid black;
+    text-align: center;
+    background: var(--purple);
+    color: white;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    width: 13rem;
+    margin-bottom: 4rem;
 }
 
-.club-news-posts h5 {
+.btn-book:hover {
+    border: 0.1rem solid black;
+    text-align: center;
+    background: var(--purple);
     color: white;
-    font-weight: 800;
-    font-family: sans-serif;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    transform: scale(1.2);
+    filter: brightness(1.2);
 }
-.club-news-posts p {
+
+.recent-news-posts h5 {
+    color: white;
+    font-weight: 900;
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/************************* CLUB NEWS ***********************/
+.news-posts h5 {
+    color: white;
+    font-weight: 900;
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+.news-posts p {
     color: white;
     font-weight: 600;
 }
 
 /*********************** MEDIA QUERIES *********************/
-/* BASE */
+/* 1200px */
+@media screen and (max-width: 75em) {
+    /* HOME */
+    .recent-news-posts h5 {
+        font-size: 1.3rem;
+    }
+}
+
+/* 992px lg*/
+@media screen and (max-width: 62em) {
+    /* HOME */
+    .btn-book {
+        width: 10em;
+        margin-bottom: 2em;
+    }
+    /* CLUB NEWS */
+    .club-news-posts h5 {
+        font-size: 1em;
+    }
+}
+
 /* 767px md */
 @media screen and (max-width: 47.938em) {
+    /* BASE */
     .nav-link {
         padding-left: 0.5em;
+    }
+    /* HOME */
+    .btn-book {
+        margin-bottom: 0.5em;
     }
 }
 
 /* 575px sm */
 @media screen and (max-width: 35.938em) {
+    /* BASE */
     .navbar-brand {
         font-size: 2.5em;
     }
@@ -342,34 +410,37 @@ footer h2 {
     }
 }
 
-/* 445px */
-@media screen and (max-width: 27.813em) {
+/* 465px */
+@media screen and (max-width: 29.063em) {
+    /* BASE */
     .navbar-brand {
         font-size: 2em;
     }
     .navbar-toggler {
         font-size: 0.75em;
     }
-    .social-icons a {
-        /* margin-right: 0.5rem; */
+    /* HOME */
+    .recent-news-posts h5 {
+        font-size: 1rem;
+    }
+    /* CLUB NEWS */
+    .news-posts h5 {
+        font-size: 1rem;
     }
 }
 
-/* 366px */
-@media screen and (max-width: 22.875em) {
+/* 385px */
+@media screen and (max-width: 24.063em) {
+    /* BASE */
     .navbar-brand {
-        font-size: 1.65em;
-    }
-    .social-icons a {
-        /* margin-right: 0.33rem; */
+        font-size: 1.8em;
     }
 }
 
-/* CLUB_NEWS */
-/* 992px */
-/* 767px md */
-@media screen and (max-width: 62em) {
-    .club-news-posts h5 {
-        font-size: 1em;
+/* 385px */
+@media screen and (max-width: 22.188em) {
+    /* BASE */
+    .navbar-brand {
+        font-size: 1.55em;
     }
 }

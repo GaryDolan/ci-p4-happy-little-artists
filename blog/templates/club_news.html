@@ -4,13 +4,14 @@
 
 {% block content %}
 
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-4">
     <!-- Club News Welcome -->
-    <section class="club-news-welcome">
+    <section>
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-8 col-sm-10">
                 <h2 class="text-center text-green">Club News</h2>
-                <p class="club-news-intro d-none d-sm-block px-1">Here at Happy Little Artists, we like to keep you up
+                <p class="d-none d-sm-block px-1 text-grey">Here at Happy Little Artists, we like to keep
+                    you up
                     to
                     date about
                     our weekly
@@ -19,14 +20,14 @@
                     stay
                     informed about upcoming events. Join our vibrant community of creative minds as we share tips,
                     showcase masterpieces, and celebrate the joy of artistic expression.
-                    <br><br>
+
                     Whether your child is just starting their artistic journey or has been with us for a while,
                     we're
                     committed to nurturing their
                     creativity and providing a platform for their imagination to flourish. Stay tuned for the latest
                     updates, and let the artistic adventure continue.
                 </p>
-                <p class="club-news-intro d-block d-sm-none px-1">
+                <p class="d-block d-sm-none px-1 text-grey">
                     Here at Happy Little Artists, we like to keep you up to date about our weekly classes and your
                     little one's progress.
                 </p>
@@ -35,12 +36,12 @@
     </section>
 
     <!-- Club News Posts -->
-    <section class="club-news-posts container mt-2">
+    <section class="news-posts container mt-2">
         <!-- Newest post -->
         <div class="row d-flex justify-content-center">
             {% for post in posts %}
             {% if forloop.first %}
-            <div class="col-md-6 position-relative">
+            <div class="col-lg-6 col-md-10 position-relative">
                 <article class="card border-secondary mb-2">
                     <a href="#">
                         <img src="{{ post.featured_img.url }}" class=" img-fluid newest-post-img"
@@ -60,7 +61,7 @@
         <!-- other posts -->
         <div class="row mt-3 d-flex justify-content-center">
             {% for post in posts|slice:"1:" %}
-            <div class="col-md-4 col-12 d-flex position-relative">
+            <div class="col-lg-4 col-md-10 d-flex position-relative">
                 <article class="card border-secondary mb-4 flex-fill">
                     <a href="">
                         <img src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
