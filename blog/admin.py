@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.text import slugify
 from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
@@ -25,6 +26,13 @@ class PostAdmin(SummernoteModelAdmin):
     def archive_post(self, request, queryset):
         queryset.update(status=2)
         self.message_user(request, f'selected posts have been archived.')
+    
+    # Override the save model to update slug when posts is edited 
+    def save_model(self, request, obj, form, change):
+        if change and 'title' in form.changed_data:
+            obj.slug = slugify(obj.title)
+
+        super().save_model(request, obj, form, change)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
