@@ -59,12 +59,12 @@
 </div>
 <div class="container mt-4">
     <!-- Recent posts -->
-    <h2 class="text-center text-green">Recent News</h2>
     <section class="recent-news-posts">
+        <h2 class="text-center text-green">Recent News</h2>
         <div class="row mt-3 d-flex justify-content-center">
             {% for post in recent_posts %}
             <div class="col-xl-3 col-md-6 d-flex position-relative">
-                <article class="card border-secondary mb-4 flex-fill">
+                <article class="card border-secondary mb-4 flex-fill selectable-feedback">
                     <a href="{% url 'post_detail' post.slug %}">
                         <img src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
                         <div

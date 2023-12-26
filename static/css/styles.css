@@ -365,6 +365,40 @@ footer h2 {
     font-weight: 600;
 }
 
+.btn-pagination {
+    background-color: var(--purple);
+    color: white;
+    font-family: var(--text-font);
+    font-weight: 600;
+    border-radius: 1rem;
+    border: 0.15rem solid var(--grey);
+}
+
+.btn-pagination:hover {
+    filter: brightness(1.2);
+    background-color: var(--purple);
+    color: white;
+    transform: scale(1.2);
+    filter: brightness(1.2);
+    border: 0.15rem solid var(--grey);
+}
+
+.selectable-feedback:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+.post-details-img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    border: 0.25rem solid var(--grey);
+}
+
+.post-details-img:hover {
+    filter: brightness(1.1);
+}
+
 /*********************** MEDIA QUERIES *********************/
 /* 1200px */
 @media screen and (max-width: 75em) {

@@ -4,4 +4,79 @@
 
 {% block content %}
 
+<article>
+    <!-- Content -->
+    <section class="container">
+
+    </section>
+
+    <!-- Images -->
+    <section class="container">
+        <!-- feature img -->
+        <div class="row d-flex justify-content-center mt-3">
+            <div class="col-xl-6 col-lg-8">
+                <a href="{{ post.featured_img.url }}" data-lightbox="post-images">
+                    <img src="{{ post.featured_img.url }}" alt="{{ post.title }} image"
+                        class="img-fluid post-details-img ">
+                </a>
+            </div>
+        </div>
+
+        <!-- Additional images -->
+        <div class="row d-flex justify-content-center mt-3">
+            {% if post.additional_img1 %}
+            <div class="col">
+                <a href="{{ post.additional_img1.url }}" data-lightbox="post-images">
+                    <img src="{{ post.additional_img1.url }}" alt="{{ post.title }} image"
+                        class="img-fluid post-details-img">
+                </a>
+            </div>
+            {% endif %}
+
+            {% if post.additional_img2 %}
+            <div class="col">
+                <a href="{{ post.additional_img2.url }}" data-lightbox="post-images">
+                    <img src="{{ post.additional_img2.url }}" alt="{{ post.title }} image"
+                        class="img-fluid post-details-img">
+                </a>
+            </div>
+            {% endif %}
+
+            {% if post.additional_img3 %}
+            <div class="col">
+                <a href="{{ post.additional_img3.url }}" data-lightbox="post-images">
+                    <img src="{{ post.additional_img3.url }}" alt="{{ post.title }} image"
+                        class="img-fluid post-details-img">
+                </a>
+            </div>
+            {% endif %}
+
+            {% if post.additional_img4 %}
+            <div class="col">
+                <a href="{{ post.additional_img4.url }}" data-lightbox="post-images">
+                    <img src="{{ post.additional_img4.url }}" alt="{{ post.title }} image"
+                        class="img-fluid post-details-img">
+                </a>
+            </div>
+            {% endif %}
+
+            {% if post.additional_img5 %}
+            <div class="col">
+                <a href="{{ post.additional_img5.url }}" data-lightbox="post-images">
+                    <img src="{{ post.additional_img5.url }}" alt="{{ post.title }} image"
+                        class="img-fluid post-details-img">
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Comments -->
+    <section>
+
+    </section>
+
+
+</article>
+
 {% endblock %}
