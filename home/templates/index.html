@@ -13,7 +13,11 @@
                     src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1703355139/media/p4/hero-image_tpcazv.webp"
                     alt="Boy painting a picture">
                 <div class="position-absolute bottom-0 btn-book-wrapper">
+                    {% if user.is_authenticated %}
                     <a href="#">
+                        {% else %}
+                        <a href="{% url 'account_login' %}"></a>
+                        {% endif %}
                         <button class="btn btn-lg d-none d-sm-block btn-book">Book Now</button>
                         <button class="btn btn-sm d-sm-none btn-book">Book Now</button>
                     </a>

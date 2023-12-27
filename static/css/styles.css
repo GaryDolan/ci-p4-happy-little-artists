@@ -220,7 +220,6 @@ ul {
     color: var(--green);
     border-radius: 1rem;
     background-color: transparent;
-    transition: background-color 400ms, font-weights;
 }
 
 .nav-link:hover {
@@ -234,8 +233,24 @@ ul {
 .about-us-link:hover {
     background-color: var(--purple-faded);
 }
-.signup-link:hover {
+
+./* Custom styling for dropdown hover */
+.nav-item.dropdown:hover {
     background-color: var(--green-bright-faded);
+}
+/* dropdown  */
+.account-link:hover {
+    background-color: var(--green-bright-faded);
+    border-radius: 1rem;
+}
+.profile-link:hover {
+    background-color: var(--yellow-faded);
+}
+.booking-link:hover {
+    background-color: var(--purple-faded);
+}
+.logout-link:hover {
+    background-color: var(--orange-faded);
 }
 .book-a-class-link:hover {
     background-color: var(--orange-faded);
