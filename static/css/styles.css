@@ -173,10 +173,20 @@ a {
     text-decoration: none;
 }
 
+/* Lists */
+ul {
+    list-style: none;
+}
+
 /* Horizontal rules */
 .custom-hr {
     color: var(--green);
     border-width: 0.2rem;
+}
+
+/* Text alignment */
+.text-right {
+    text-align: right;
 }
 
 /*************************** BASE *************************/
@@ -388,15 +398,23 @@ footer h2 {
     filter: brightness(1.05);
 }
 
-.post-details-img {
-    width: auto;
-    height: 100%;
-    object-fit: cover;
+/* post detailed view */
+.post-img {
     border: 0.25rem solid var(--grey);
 }
 
-.post-details-img:hover {
+.post-img:hover {
     filter: brightness(1.1);
+}
+
+.post-details-thumb {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.likes-comment {
+    font-size: 1.5rem;
 }
 
 /*********************** MEDIA QUERIES *********************/
