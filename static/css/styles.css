@@ -390,7 +390,7 @@ footer h2 {
     font-weight: 600;
 }
 
-.btn-pagination {
+.btn-small {
     background-color: var(--purple);
     color: white;
     font-family: var(--text-font);
@@ -399,7 +399,7 @@ footer h2 {
     border: 0.15rem solid var(--grey);
 }
 
-.btn-pagination:hover {
+.btn-small:hover {
     filter: brightness(1.2);
     background-color: var(--purple);
     color: white;
