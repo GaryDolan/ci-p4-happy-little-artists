@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from .forms import CommentForm
 
 class PostListView(generic.ListView):
     model = Post
@@ -32,7 +33,43 @@ class PostDetailView(View):
             {
                 'post': post,
                 'comments': comments,
+                'commented': False, 
                 'liked': liked,
-                'current_page': current_page
+                'current_page': current_page,
+                'comment_form': CommentForm()
+            },
+        )
+    
+    def post (self, request, slug, *args, **kwargs):
+        current_page = 'club_news'
+        published_posts = Post.objects.filter(status=1)
+        post = get_object_or_404(published_posts, slug=slug)
+        comments = post.comments.filter(approved=True).order_by("-created_on")
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        # Retrieve form data 
+        comment_form = CommentForm(data=request.POST)
+        # for valid forms update the model fields not filled out in the form
+        if comment_form.is_valid():
+            comment_form.instance.user = request.user
+            comment = comment_form.save(commit=False)
+            comment.post =post
+            comment.save()
+        else:
+            comment_form = CommentForm()
+
+
+        return render(
+            request,
+            'post_details.html',
+            {
+                'post': post,
+                'comments': comments,
+                'commented': True, 
+                'liked': liked,
+                'current_page': current_page,
+                'comment_form': comment_form
             },
         )

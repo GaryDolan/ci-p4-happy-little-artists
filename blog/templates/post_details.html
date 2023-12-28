@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Club News{% endblock %}
 
 {% block content %}
@@ -83,7 +85,6 @@
                     <strong> {{ post.number_of_likes }} <i class="far fa-thumbs-up"></i></strong>
                     <strong> {{ post.number_of_comments }} <i class="far fa-comments"></i></strong>
                 </div>
-
                 <hr class="custom-hr">
             </div>
         </div>
@@ -94,16 +95,43 @@
     <section class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <h2>Comments:</h2>
-                <ul>
-                    {% for comment in comments%}
-                    <li>
-                        <p>{{comment.comment_text}}</p>
-                        <p class="text-right">Comment by <strong>{{comment.user.username}}</strong></p>
-                        <hr class="custom-hr">
-                    </li>
-                    {% endfor %}
-                </ul>
+                <!-- Comment form -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment has been sent for approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h2 class="mb-0 text-green">Add a comment</h2>
+                <p class="mb-0">(Posting as <strong>{{user.username}}</strong>)</p>
+                <div class="text-center">
+                    <form method="post">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button class="btn btn-small mt-2">Post comment</button>
+                    </form>
+                </div>
+                {% endif %}
+                {% endif %}
+
+                <!-- Comments -->
+                <div class="mt-3">
+                    <h2 class="text-green">Comments:</h2>
+                    {% if comments%}
+                    <ul>
+                        {% for comment in comments%}
+                        <li>
+                            <p>{{comment.comment_text}}</p>
+                            <p class="text-right">Comment by <strong>{{comment.user.username}}</strong> on
+                                {{comment.created_on}}</p>
+                            <hr class="custom-hr">
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No comments yet.</p>
+                    {% endif%}
+                </div>
             </div>
         </div>
     </section>

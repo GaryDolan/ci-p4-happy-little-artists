@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 
+{% block title %}Login{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -23,7 +25,8 @@
     </div>
     <div class="row">
         <div class="col mt-2 text-center">
-            <p> If you have not created an account yet, then <a class="link" href="{{ signup_url }}"><strong> Sign up </strong></a> first.</p>
+            <p> If you have not created an account yet, then <a class="link" href="{{ signup_url }}"><strong> Sign up
+                    </strong></a> first.</p>
         </div>
     </div>
 </div>

@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Sign up{% endblock %}
+
 
 {% block content %}
 <div class="container-fluid">
@@ -12,14 +16,14 @@
         <div class="col-10 col-sm-8 col-md-6 col-xl-3 mt-2 mb-3 bg-off-white">
             <form id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif%}
                 <button class="btn btn-small my-3" type="submit">Sign Up</button>
             </form>
         </div>
-    </div> 
+    </div>
     <div class="row">
         <div class="col mt-2 text-center">
             <p>Already have an account? Then please <a href="{{ login_url }}">Sign in</a>.</p>
