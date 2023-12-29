@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import	HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
+from django.contrib import messages
 
 class PostListView(generic.ListView):
     model = Post
@@ -58,6 +59,7 @@ class PostDetailView(View):
             comment = comment_form.save(commit=False)
             comment.post =post
             comment.save()
+            messages.success(request, 'You have successfully added a comment.')
         else:
             comment_form = CommentForm()
 
@@ -80,7 +82,9 @@ class PostLike(View):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            messages.warning(request, 'You have unliked this post.')
         else:
             post.likes.add(request.user)
+            messages.success(request, 'You have liked this post.')
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
