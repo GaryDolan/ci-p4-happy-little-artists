@@ -33,7 +33,7 @@ class Post(models.Model):
         return self.likes.count()
     
     def number_of_comments(self):
-        return self.comments.count()
+        return self.comments.filter(approved=True).count()
     
 
 class Comment(models.Model):
