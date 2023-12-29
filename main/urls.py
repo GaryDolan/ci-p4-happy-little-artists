@@ -28,6 +28,6 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     # path('bookings/', include('bookings.urls')),
     # path('contact_us/', include('contact_us.urls')),
-    # path('profiles/', include('profiles.urls')),
+    path('profile/', include('profiles.urls')),
 
 ]

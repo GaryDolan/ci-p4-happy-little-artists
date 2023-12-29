@@ -69,13 +69,15 @@
                     <a class="nav-link about-us-link" href="#">About Us</a>
                 </li>
                 {% if user.is_authenticated %}
-                <li class="nav-item dropdown me-2 account-link {% if 'logout' in request.path %}active{% endif %}">
+                <li
+                    class="nav-item dropdown me-2 account-link {% if 'logout' in request.path or current_page == 'profile' %}active{% endif %}">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">My Account
                     </a>
                     <ul class="dropdown-menu">
                         <li class="nav-item mx-2 {% if current_page == 'profile' %}active{% endif %}">
-                            <a class="nav-link profile-link" href="#">Profile</a>
+                            <a class="nav-link profile-link"
+                                href="{% url 'profile' username=user.username %}">Profile</a>
                         </li>
                         <li class="nav-item mx-2 {% if current_page == 'profile' %}active{% endif %}">
                             <a class="nav-link booking-link" href="#">My bookings</a>
