@@ -1,11 +1,13 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.core.paginator import Paginator
 from .models import Profile
 
 class ProfileDetailView(generic.DetailView):
     model = Profile 
     template_name = "profile.html"
+    # Name to refer to it by in the template
     context_object_name = "profile"
 
     def get_object(self, queryset=None):
@@ -24,8 +26,11 @@ class ProfileDetailView(generic.DetailView):
         # Set the flag (highlights profile tab in nav) but only if its your profile
         context['current_page'] = 'profile' if self.request.user == self.object.user else None
 
-        #Get users liked posts
-        context['liked_posts'] = self.object.user.blog_likes.all()
+        # Paginate the users blog like by 3
+        liked_post_paginator = Paginator(self.object.user.blog_likes.all(), 3)
+        page = self.request.GET.get('page')
+        liked_posts = liked_post_paginator.get_page(page)
+        context['liked_posts'] = liked_posts
 
 
         return context
