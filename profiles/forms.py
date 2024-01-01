@@ -5,6 +5,8 @@ from .models import Profile
 
 
 class EditUserForm(UserChangeForm):
+    # Remove the password field
+    password = None
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email',)

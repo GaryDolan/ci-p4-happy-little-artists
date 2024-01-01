@@ -41,11 +41,24 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
     model = Profile
     template_name = 'edit_profile.html'
     form_class = EditProfileForm
-    # user_form_class = EditUserForm
 
     # Override the get success to redirect back to the specific user profile page 
     def get_success_url(self):
         return reverse_lazy('profile', args=[self.object.user.username])
-    # 
+    
+    # Test function for UserPassesTestMixin
     def test_func(self):
         return self.request.user == self.get_object().user
+    
+class EditUserView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = User
+    template_name = 'edit_user.html'
+    form_class = EditUserForm
+
+    # Override the get success to redirect back to the specific user profile page 
+    def get_success_url(self):
+        return reverse_lazy('profile', args=[self.object.username])
+    
+    # Test function for UserPassesTestMixin
+    def test_func(self):
+        return self.request.user == self.get_object()
