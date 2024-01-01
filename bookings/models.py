@@ -19,5 +19,24 @@ class ArtClass(models.Model):
     def __str__(self):
         return self.title
 
+class Booking(models.Model):
+    # Tuple to control the booking payment status
+    PAYMENT_STATUS_CHOICES = ((0, "Not Paid"), (1, "Paid"),)
 
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookings")
+    date_created = models.DateTimeField(auto_now_add=True)
+    payment_status = models.IntegerField(choices=PAYMENT_STATUS_CHOICES, default=0 )
+    art_class = models.ForeignKey(ArtClass, on_delete=models.CASCADE, related_name="bookings")
+    admin_notes = models.TextField(help_text='Enter booking notes here', blank=True)
+    child_name = models.CharField(max_length=20, help_text="Enter the child's name")
+    contact_number = models.CharField(max_length=20, help_text="Enter the contact number")
+    emg_contact_name = models.CharField(max_length=20, help_text="Enter the emergency contacts name")
+    emg_contact_number = models.CharField(max_length=20, help_text="Enter the emergency contact number")
+
+
+    class Meta:
+        ordering = ['-date_created']
+
+    def __str__(self):
+        return f"{self.owner.username}'s Booking for {self.art_class}"
 
