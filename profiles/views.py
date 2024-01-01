@@ -4,6 +4,7 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
+from django.contrib import messages
 from .models import Profile
 from .forms import EditProfileForm, EditUserForm
 class ProfileDetailView(generic.DetailView):
@@ -44,6 +45,7 @@ class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
 
     # Override the get success to redirect back to the specific user profile page 
     def get_success_url(self):
+        messages.success(self.request, 'You have successfully updated your profile.')
         return reverse_lazy('profile', args=[self.object.user.username])
     
     # Test function for UserPassesTestMixin
@@ -57,6 +59,7 @@ class EditUserView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
 
     # Override the get success to redirect back to the specific user profile page 
     def get_success_url(self):
+        messages.success(self.request, 'You have successfully updated your user info.')
         return reverse_lazy('profile', args=[self.object.username])
     
     # Test function for UserPassesTestMixin
