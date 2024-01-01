@@ -47,9 +47,11 @@
             </div>
         </div>
         <!-- Edit profile -->
+        {% if request.user == profile.user %}
         <div class="text-center mt-3">
             <a class="btn btn-small" href="{% url 'edit_profile' profile.id%}">Edit your profile</a>
         </div>
+        {% endif %}
     </section>
 
     <!-- Liked posts -->
