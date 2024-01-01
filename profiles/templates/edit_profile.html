@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-10 col-lg-8 col-xl-6 bg-off-white rounded">
+            <h1 class="text-center text-green p-1 text-decoration-underline">Edit your profile</h1>
+            <form method="post" enctype="multipart/form-data" class="generated_forms">
+                {% csrf_token %}
+                {{form | crispy }}
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-small">Update your info</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

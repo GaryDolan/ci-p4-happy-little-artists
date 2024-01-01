@@ -452,6 +452,26 @@ footer h2 {
     filter: brightness(1.2);
 }
 
+/********************* EDIT PROFILE PAGE *******************/
+
+.generated_forms label {
+    color: var(--green);
+    font-family: var(--text-font);
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: center;
+    margin: 1.5rem 0 0 0;
+    text-decoration: underline;
+}
+
+.generated_forms a {
+    color: black;
+}
+
+.generated_forms input[type="text"] {
+    font-size: 2rem;
+}
+
 /*********************** MEDIA QUERIES *********************/
 /* 1200px */
 @media screen and (max-width: 75em) {

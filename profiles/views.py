@@ -2,8 +2,10 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from .models import Profile
-
+from .forms import EditProfileForm, EditUserForm
 class ProfileDetailView(generic.DetailView):
     model = Profile 
     template_name = "profile.html"
@@ -35,3 +37,15 @@ class ProfileDetailView(generic.DetailView):
 
         return context
 
+class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Profile
+    template_name = 'edit_profile.html'
+    form_class = EditProfileForm
+    # user_form_class = EditUserForm
+
+    # Override the get success to redirect back to the specific user profile page 
+    def get_success_url(self):
+        return reverse_lazy('profile', args=[self.object.user.username])
+    # 
+    def test_func(self):
+        return self.request.user == self.get_object().user

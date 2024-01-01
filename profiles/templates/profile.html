@@ -46,10 +46,15 @@
                 {% endif %}
             </div>
         </div>
+        <!-- Edit profile -->
+        <div class="text-center mt-3">
+            <a class="btn btn-small" href="{% url 'edit_profile' profile.id%}">Edit your profile</a>
+        </div>
     </section>
+
     <!-- Liked posts -->
     <section>
-        <h2 class="text-green text-center mt-3" id="liked_posts_section">Liked posts:</h2>
+        <h2 class="text-green text-center mt-5" id="liked_posts_section">Liked posts:</h2>
         {% if liked_posts %}
         <div class="row mt-3 d-flex justify-content-center news-posts">
             {% for post in liked_posts %}
