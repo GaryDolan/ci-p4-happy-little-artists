@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
 
 class ArtClass(models.Model):
     # Tuples to control age and duration choices
@@ -40,3 +42,22 @@ class Booking(models.Model):
     def __str__(self):
         return f"{self.owner.username}'s Booking for {self.art_class}"
 
+# Use the post_save signal from the booking model to set the booking count of the associated art class
+@receiver(post_save, sender=Booking)
+def add_booking_to_class(sender, instance, **kwargs):
+    # Increase the bookings_count of the associated ArtClass
+    art_class = instance.art_class
+    art_class.bookings_count += 1
+    # only save the booking count
+    art_class.save(update_fields=['bookings_count'])
+
+ # Use the post_delete signal from the booking model to set the booking count of the associated art class
+@receiver(post_delete, sender=Booking)
+def remove_booking_from_class(sender, instance, **kwargs):
+    # Decrease the bookings_count of the associated ArtClass
+    art_class = instance.art_class
+    remaining_bookings_count = Booking.objects.filter(art_class=art_class).count()
+    art_class.bookings_count = remaining_bookings_count
+    # only save the booking count
+    art_class.save(update_fields=['bookings_count'])
+    
