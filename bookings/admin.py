@@ -7,7 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class ArtClassAdmin(admin.ModelAdmin):
     list_display = ('title', 'start_date', 'end_date', 'duration', 'location', 'age_group', 'bookings_count', 'max_bookings')
     search_fields = ('title', 'location')
-    list_filter = ('age_group','location')
+    list_filter = ('age_group','location', 'age_group')
     
 @admin.register(Booking)
 class BookingAdmin(SummernoteModelAdmin):
@@ -26,3 +26,13 @@ class BookingAdmin(SummernoteModelAdmin):
     def mark_as_paid(self, request, queryset):
         queryset.update(payment_status=1)
         self.message_user(request, f'selected bookings have been marked as paid.')
+    
+    # override the save model so that we can update the art class booking count when we add a booking in the admin class
+    def save_model(self, request, obj, form, change):
+        print('hello')
+        # save the booking
+        obj.save()
+        # update art class count
+        obj.art_class.bookings_count = Booking.objects.filter(art_class=obj.art_class).count()
+        obj.art_class.save()
+
