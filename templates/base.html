@@ -95,7 +95,7 @@
                 {% endif %}
                 {% if user.is_authenticated %}
                 <li class="nav-item me-2 {% if current_page == 'book_a_class' %}active{% endif %}">
-                    <a class="nav-link book-a-class-link" href="#">Book A Class</a>
+                    <a class="nav-link book-a-class-link" href="{% url 'create_booking' %}">Book A Class</a>
                 </li>
                 {% else %}
                 <li class="nav-item me-2 {% if current_page == 'book_a_class' %}active{% endif %}">
