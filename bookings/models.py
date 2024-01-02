@@ -30,10 +30,10 @@ class Booking(models.Model):
     payment_status = models.IntegerField(choices=PAYMENT_STATUS_CHOICES, default=0 )
     art_class = models.ForeignKey(ArtClass, on_delete=models.CASCADE, related_name="bookings")
     admin_notes = models.TextField(help_text='Enter booking notes here', blank=True)
-    child_name = models.CharField(max_length=20, help_text="Enter the child's name")
-    contact_number = models.CharField(max_length=20, help_text="Enter the contact number")
-    emg_contact_name = models.CharField(max_length=20, help_text="Enter the emergency contacts name")
-    emg_contact_number = models.CharField(max_length=20, help_text="Enter the emergency contact number")
+    child_name = models.CharField(max_length=20, help_text="Enter name (letters only)")
+    contact_number = models.CharField(max_length=20, help_text="Enter number in the format XXX XXX XXXX")
+    emg_contact_name = models.CharField(max_length=20, help_text="Enter name (letters only)")
+    emg_contact_number = models.CharField(max_length=20, help_text="Enter number in the format XXX XXX XXXX")
 
 
     class Meta:
