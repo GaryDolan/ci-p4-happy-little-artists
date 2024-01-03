@@ -2,6 +2,7 @@ from django import forms
 from django.core.validators import RegexValidator
 from .models import Booking, ArtClass
 
+# Use the same form for booking and editing booking 
 class BookingForm(forms.ModelForm):
 
     #define regex validators
@@ -23,3 +24,4 @@ class BookingForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # set the values of the are class field to all available art classes
         self.fields['art_class'].queryset=ArtClass.objects.all()
+
