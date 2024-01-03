@@ -1,7 +1,7 @@
 from django.views import generic
-from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse, reverse_lazy
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib import messages
 from .models import Booking
 from .forms import BookingForm
@@ -27,7 +27,7 @@ class EditBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
     template_name = 'edit_booking.html'
     form_class = BookingForm
 
-    # Override the get success to redirect back to the specific user profile page 
+    # Override the get success url to redirect back to the specific user profile page 
     def get_success_url(self):
         messages.success(self.request, 'You have successfully updated your booking.')
         return reverse_lazy('profile', args=[self.object.owner.username])
@@ -52,3 +52,29 @@ class EditBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
         response = super().form_valid(form)
 
         return response
+    
+class DeleteBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.View):
+
+    # Test function for UserPassesTestMixin, only user that mad the booking can delete it
+    def test_func(self):
+        booking_id = self.request.POST.get('booking_id')
+        booking = get_object_or_404(Booking, id=booking_id)
+        return booking.owner == self.request.user
+    
+    # Get the booking id from form, delete and return to profile
+    def post(self, request, *args, **kwargs):
+        # get the booking
+        booking_id = request.POST.get('booking_id')
+        booking = get_object_or_404(Booking, id=booking_id)
+
+        # get the booking owners username
+        owner_username = booking.owner.username
+
+        #delete the booking  
+        booking.delete()
+        messages.warning(self.request, 'You have deleted your booking.')
+
+        # return to the users profile 
+        return redirect('profile', owner_username)
+
+    
