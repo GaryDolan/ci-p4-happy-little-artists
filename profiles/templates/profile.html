@@ -75,7 +75,8 @@
     <section>
         <h2 class="text-green text-center mt-5" id="my-bookings">My Bookings:</h2>
         {% if user_bookings %}
-        <div class="row mt-3 d-flex justify-content-center">
+        <!-- Display as table or md screens up -->
+        <div class="row d-none d-md-block mt-3 d-flex justify-content-center">
             <table class="table-responsive table-bordered text-center">
                 <thead>
                     <tr class="bg-green text-off-white">
@@ -105,6 +106,30 @@
                 </tbody>
             </table>
         </div>
+        <!-- Display bookings as cards on sm and md screens -->
+        {% for booking in user_bookings %}
+        <div class="row d-block d-md-none mt-3 d-flex justify-content-center">
+            <div class="col">
+                <div
+                    class="card {% cycle 'bg-yellow-f' 'bg-purple-f' 'bg-green-b-f' 'bg-orange-f' 'bg-blue-f' 'bg-red-f' %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-decoration-underline">{{booking.child_name}}
+                        </h5>
+                        <p class="card-text">
+                            <strong>Age Group:</strong> {{booking.art_class.age_group}}<br>
+                            <strong>Start Date:</strong> {{booking.art_class.start_date}}<br>
+                            <strong>End Date:</strong> {{booking.art_class.end_date}}<br>
+                            <strong>Start Time:</strong> {{booking.art_class.start_time}}<br>
+                            <strong>Duration:</strong> {{booking.art_class.duration}} hour<br>
+                            <strong>Location:</strong> {{booking.art_class.location}}<br>
+                            <strong>Paid Status:</strong> {{booking.get_payment_status_display}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
         {% else %}
         <!-- no bookings -->
 
