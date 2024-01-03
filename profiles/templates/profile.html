@@ -172,11 +172,15 @@
                 {% if liked_posts.has_previous %}
                 <li class="page-item"><a class="page-link" href=" ?page=1#liked_posts_section">&laquo; First</a></li>
                 <li class="page-item"><a class="page-link"
-                        href=" ?page={{liked_posts.previous_page_number}}#liked_posts_section">Previous</a></li>
+                        href=" ?page={{liked_posts.previous_page_number}}#liked_posts_section">Prev</a></li>
                 {% endif %}
 
-                <li class="page-item disabled"><a class="page-link" href=" #"> Page {{liked_posts.number}} of
-                        {{liked_posts.paginator.num_pages}}</a></li>
+                <div class="row d-none d-sm-block">
+                    <div class="col">
+                        <li class="page-item disabled"><a class="page-link" href=" #"> Page {{liked_posts.number}} of
+                                {{liked_posts.paginator.num_pages}}</a></li>
+                    </div>
+                </div>
 
                 {% if liked_posts.has_next %}
                 <li class="page-item"><a class="page-link"
