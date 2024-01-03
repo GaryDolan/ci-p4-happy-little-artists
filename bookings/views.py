@@ -36,3 +36,19 @@ class EditBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
     def test_func(self):
         return self.request.user == self.get_object().owner
     
+    # override the form valid method to change art class booking count before data is updated
+    def form_valid(self, form):
+        # Get the booking as it is now (I haven't saved the updated values yet)
+        booking = self.get_object()
+
+        # Check if art_class is due to be changed
+        # Cleaned data is a dict of the data that was submitted in the form to be saved
+        if booking.art_class != form.cleaned_data['art_class']:
+            # They changed class, dec the booking count of class they left
+            booking.art_class.bookings_count -= 1
+            booking.art_class.save()
+
+        # Normal form validation and save
+        response = super().form_valid(form)
+
+        return response
