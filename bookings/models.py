@@ -12,6 +12,7 @@ class ArtClass(models.Model):
     description = models.CharField(max_length=200, help_text='Enter a brief class description', null=True, blank=True)
     start_date = models.DateField(help_text='Select the start date')
     end_date = models.DateField(help_text='Select the end date')
+    start_time = models.TimeField(help_text='Select the start time')
     duration = models.CharField(max_length=10,choices=DURATION_CHOICES, help_text='Enter the class duration')
     location = models.CharField(max_length=20, help_text='Enter class location')
     age_group = models.CharField(max_length=10,choices=AGE_GROUP_CHOICES)

@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Profile
+from bookings.models import Booking
 from .forms import EditProfileForm, EditUserForm
 class ProfileDetailView(generic.DetailView):
     model = Profile 
@@ -35,7 +36,8 @@ class ProfileDetailView(generic.DetailView):
         liked_posts = liked_post_paginator.get_page(page)
         context['liked_posts'] = liked_posts
 
-
+        # get and return user bookings to the template 
+        context['user_bookings']=Booking.objects.filter(owner=self.object.user)
         return context
 
 class EditProfileView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
