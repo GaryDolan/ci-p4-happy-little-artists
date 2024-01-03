@@ -73,21 +73,21 @@
     <!-- Bookings -->
     {% if request.user == profile.user %}
     <section>
-        <h2 class="text-green text-center mt-5" id="my-bookings">My Bookings:</h2>
+        <h2 class="text-green text-center mt-5" id="my_bookings">My Bookings:</h2>
         {% if user_bookings %}
         <!-- Display as table or md screens up -->
         <div class="row d-none d-md-block mt-3 d-flex justify-content-center">
             <table class="table-responsive table-bordered text-center">
                 <thead>
                     <tr class="bg-green text-off-white">
-                        <th>Child Name</th>
+                        <th>Child's Name</th>
                         <th>Age Group</th>
                         <th>Start Date</th>
                         <th>End Date</th>
                         <th>Start Time</th>
                         <th>Duration</th>
                         <th>Location</th>
-                        <th>Paid Status</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -132,7 +132,6 @@
 
         {% else %}
         <!-- no bookings -->
-
         <div class="row col justify-content-center">
             <div class="col text-center">
                 <p class="mt-3">You have not booked any classed yet.</p>
