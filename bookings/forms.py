@@ -1,6 +1,7 @@
 from django import forms
 from django.core.validators import RegexValidator
 from django.db.models import F
+from django.utils.safestring import mark_safe
 from .models import Booking, ArtClass
 
 # Use the same form for booking and editing booking 
@@ -32,5 +33,5 @@ class BookingForm(forms.ModelForm):
         if not self.fields['art_class'].queryset.exists():
             # use the widget to modify the art class fields disabled attribute
             self.fields['art_class'].widget.attrs.update ({'disabled': True})
-            self.fields['art_class'].help_text = 'All classes are full. Please try again later.'
-            self.fields['art_class'].label = 'Art Class (All full)'
+            self.fields['art_class'].help_text = mark_safe('<span class="classes_full">All classes are full. Please try again later.</span>')
+            self.fields['art_class'].label = mark_safe('<span class="classes_full">Art Class (All full).</span>')
