@@ -20,6 +20,7 @@ class ArtClass(models.Model):
     max_bookings = models.IntegerField(default=20)
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.title
 
 class Booking(models.Model):
@@ -41,11 +42,11 @@ class Booking(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        return f"{self.owner.username}'s Booking for {self.art_class}"
+        return f"{self.owner.username}'s Booking for {self.art_class}" # pylint: disable=no-member
 
 # Use the post_save signal from the booking model to set the booking count of the associated art class
 @receiver(post_save, sender=Booking)
-def add_booking_to_class(sender, instance, **kwargs):
+def add_booking_to_class(instance, **kwargs): # pylint: disable=unused-argument
     # Increase the bookings_count of the associated ArtClass
     art_class = instance.art_class
     art_class.bookings_count += 1
@@ -54,10 +55,10 @@ def add_booking_to_class(sender, instance, **kwargs):
 
 # Use the post_delete signal from the booking model to set the booking count of the associated art class
 @receiver(post_delete, sender=Booking)
-def remove_booking_from_class(sender, instance, **kwargs):
+def remove_booking_from_class(instance, **kwargs): # pylint: disable=unused-argument
     # Decrease the bookings_count of the associated ArtClass
     art_class = instance.art_class
-    remaining_bookings_count = Booking.objects.filter(art_class=art_class).count()
+    remaining_bookings_count = Booking.objects.filter(art_class=art_class).count() # pylint: disable=no-member
     art_class.bookings_count = remaining_bookings_count
     # only save the booking count
     art_class.save(update_fields=['bookings_count'])

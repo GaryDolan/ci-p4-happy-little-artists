@@ -11,31 +11,31 @@ class CreateBookingView(LoginRequiredMixin, generic.CreateView):
     form_class = BookingForm
     template_name = 'create_booking.html'
     # Return to current users profile
-    
-    # Override the form valid (save) method to assign the booking owner 
+
+    # Override the form valid (save) method to assign the booking owner
     def form_valid(self, form):
         messages.success(self.request, 'You have successfully created a booking.')
         form.instance.owner =self.request.user
         return super().form_valid(form)
-    
+
     #override the get success_url method to dynamically call the correct user profile
     def get_success_url(self):
         return reverse('profile', kwargs={'username': self.request.user.username})
-    
+
 class EditBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Booking
     template_name = 'edit_booking.html'
     form_class = EditBookingForm
 
-    # Override the get success url to redirect back to the specific user profile page 
+    # Override the get success url to redirect back to the specific user profile page
     def get_success_url(self):
         messages.success(self.request, 'You have successfully updated your booking.')
         return reverse_lazy('profile', args=[self.object.owner.username])
-    
+
     # Test function for UserPassesTestMixin
     def test_func(self):
         return self.request.user == self.get_object().owner
-    
+
     # override the form valid method to change art class booking count before data is updated
     def form_valid(self, form):
         # Get the booking as it is now (I haven't saved the updated values yet)
@@ -52,7 +52,7 @@ class EditBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
         response = super().form_valid(form)
 
         return response
-    
+
 class DeleteBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.View):
 
     # Test function for UserPassesTestMixin, only user that mad the booking can delete it
@@ -60,9 +60,9 @@ class DeleteBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.View):
         booking_id = self.request.POST.get('booking_id')
         booking = get_object_or_404(Booking, id=booking_id)
         return booking.owner == self.request.user
-    
+
     # Get the booking id from form, delete and return to profile
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         # get the booking
         booking_id = request.POST.get('booking_id')
         booking = get_object_or_404(Booking, id=booking_id)
@@ -70,11 +70,10 @@ class DeleteBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.View):
         # get the booking owners username
         owner_username = booking.owner.username
 
-        #delete the booking  
+        #delete the booking
         booking.delete()
         messages.warning(self.request, 'You have deleted your booking.')
 
-        # return to the users profile 
+        # return to the users profile
         return redirect('profile', owner_username)
-
     

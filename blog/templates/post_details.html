@@ -124,8 +124,8 @@
                 <p class="mb-0">(Posting as <strong>{{user.username}}</strong>)</p>
                 <div class="text-center">
                     <form method="post">
-                        {{ comment_form | crispy }}
                         {% csrf_token %}
+                        {{ comment_form | crispy }}
                         <button class="btn btn-small mt-2">Post comment</button>
                     </form>
                 </div>

@@ -4,7 +4,7 @@ from django.db.models import F, Q
 from django.utils.safestring import mark_safe
 from .models import Booking, ArtClass
 
-# Use the same form for booking and editing booking 
+# Use the same form for booking and editing booking
 class BookingForm(forms.ModelForm):
 
     #define regex validators
@@ -24,10 +24,10 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         # set the values of the art class field to a dropdown(queryset)of all art classes that are not full
         # F allows comparison of 2 model fields in filters
-        self.fields['art_class'].queryset = ArtClass.objects.filter(bookings_count__lt=F("max_bookings"))
+        self.fields['art_class'].queryset = ArtClass.objects.filter(bookings_count__lt=F("max_bookings")) # pylint: disable=no-member
 
         # if there are entries in the query
         if not self.fields['art_class'].queryset.exists():
@@ -60,11 +60,9 @@ class EditBookingForm(forms.ModelForm):
         # get the art class attached to the booking being modified by this form
         # id was passed to view and when view creates form he booking info is passed
         current_art_class = self.instance.art_class
-        
+
         # set the values of the art class field to a dropdown(queryset)of all art classes that are not full and the current art class
         # F allows comparison of 2 model fields in filters
         # Q allows queries with multiple conditions
 
-        self.fields['art_class'].queryset = ArtClass.objects.filter(Q(bookings_count__lt=F("max_bookings")) | Q(pk=current_art_class.pk))
-
-
+        self.fields['art_class'].queryset = ArtClass.objects.filter(Q(bookings_count__lt=F("max_bookings")) | Q(pk=current_art_class.pk)) # pylint: disable=no-member

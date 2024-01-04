@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.utils.text import slugify
-from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Post, Comment
+
 
 
 @admin.register(Post)
@@ -12,22 +13,22 @@ class PostAdmin(SummernoteModelAdmin):
     search_fields = ['author__username', 'title', 'content']
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
-    
+
     actions = ['set_as_draft', 'publish_post', 'archive_post']
 
     def set_as_draft(self, request, queryset):
         queryset.update(status=0)
-        self.message_user(request, f'selected posts have been set as drafts.')
+        self.message_user(request, 'selected posts have been set as drafts.')
 
     def publish_post(self, request, queryset):
         queryset.update(status=1)
-        self.message_user(request, f'selected posts have been published.')
+        self.message_user(request, 'selected posts have been published.')
 
     def archive_post(self, request, queryset):
         queryset.update(status=2)
-        self.message_user(request, f'selected posts have been archived.')
-    
-    # Override the save model to update slug when posts is edited 
+        self.message_user(request, 'selected posts have been archived.')
+
+    # Override the save model to update slug when posts is edited
     def save_model(self, request, obj, form, change):
         if change and 'title' in form.changed_data:
             obj.slug = slugify(obj.title)
@@ -43,8 +44,8 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
-        self.message_user(request, f'selected comments have been approved.')
-    
+        self.message_user(request, 'selected comments have been approved.')
+
     def disapprove_comments(self, request, queryset):
         queryset.update(approved=False)
-        self.message_user(request, f'selected comments have been disapproved.')
+        self.message_user(request, 'selected comments have been disapproved.')

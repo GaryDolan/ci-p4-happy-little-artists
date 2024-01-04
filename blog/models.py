@@ -27,14 +27,16 @@ class Post(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
+        # pylint: disable=invalid-str-returned
         return self.title
 
     def number_of_likes(self):
+        # pylint: disable=no-member
         return self.likes.count()
-    
+
     def number_of_comments(self):
+        # pylint: disable=no-member
         return self.comments.filter(approved=True).count()
-    
 
 class Comment(models.Model):
 
@@ -49,5 +51,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.comment_text} by {self.user}"
-
-

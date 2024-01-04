@@ -25,7 +25,7 @@
     --blue-slightly-faded: rgba(21, 54, 237, 0.8);
     --blue-faded: rgba(21, 54, 237, 0.3);
     --red: #ed2415;
-    --red-sllightly-faded: rgba(237, 36, 21, 0.8);
+    --red-slightly-faded: rgba(237, 36, 21, 0.8);
     --red-faded: rgba(237, 36, 21, 0.3);
     --red-dark: #d32f2f;
     --red-dark-slightly-faded: rgba(211, 47, 47, 0.8);
@@ -234,7 +234,7 @@ ul {
     background-color: var(--purple-faded);
 }
 
-./* Custom styling for dropdown hover */
+/* Custom styling for dropdown hover */
 .nav-item.dropdown:hover {
     background-color: var(--green-bright-faded);
 }
@@ -296,7 +296,7 @@ footer h2 {
 
 /* Social icons */
 .social-icons a {
-    /* margin-right: 1rem; */
+    margin-right: 1rem;
 }
 
 .facebook-icon {
@@ -554,9 +554,13 @@ footer h2 {
     .navbar-brand {
         font-size: 1.8em;
     }
+    /* Social icons */
+    .social-icons a {
+        margin-right: 0;
+    }
 }
 
-/* 385px */
+/* 355px */
 @media screen and (max-width: 22.188em) {
     /* BASE */
     .navbar-brand {

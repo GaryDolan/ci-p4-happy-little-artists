@@ -12,11 +12,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 
 import os
-import dj_database_url
 from pathlib import Path
+import dj_database_url
 from django.contrib.messages import constants as messages
 
 if os.path.isfile('env.py'):
+    # Importing env for environment variables and configurations
+    # pylint: disable=unused-import
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -55,7 +57,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
-   
+
     # Apps
     'about_us',
     'authentication',
@@ -76,7 +78,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 # Crispy forms
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-# Messaging 
+# Messaging
 MESSAGE_TAGS = {
     messages.DEBUG: "alert-info",
     messages.INFO: "alert-info",
@@ -164,7 +166,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Cloudinary URL configuration 
+# Cloudinary URL configuration
 CLOUIDNARY_URL = os.environ.get('CLOUDINARY_URL')
 
 # Static files (CSS, JavaScript, Images)

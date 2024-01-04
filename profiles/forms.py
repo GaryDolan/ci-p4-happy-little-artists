@@ -18,4 +18,3 @@ class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('profile_pic', 'about_me',)
-

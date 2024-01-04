@@ -129,7 +129,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Cancel</button>
-                                    <!-- use a form to post to the view so that I dont need to render a new template -->
+                                    <!-- use a form to post to the view so that I don't need to render a new template -->
                                     <form method="post" action="{% url 'delete_booking' %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="booking_id" value="{{ booking.id }}">
@@ -166,7 +166,7 @@
                             <a href="{%url 'edit_booking' booking.id %}">
                                 <i class="fa-solid fa-pen text-dark p-2"></i>
                             </a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#bookingDeleteModalsm{{ booking.id }}">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#bookingDeleteModalSm{{ booking.id }}">
                                 <i class="fa-solid fa-trash-can text-dark p-2 ms-3"></i>
                             </a>
                         </div>
@@ -176,19 +176,19 @@
         </div>
 
         <!-- Generate a delete modal for each booking card -->
-        <div class="modal fade" id="bookingDeleteModalsm{{ booking.id }}" tabindex="-1"
-            aria-labelledby="bookingDeleteModalsmLabel" aria-hidden="true">
+        <div class="modal fade" id="bookingDeleteModalSm{{ booking.id }}" tabindex="-1"
+            aria-labelledby="bookingDeleteModalSmLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-green" id="bookingDeleteModalsmLabel">Confirm
+                        <h5 class="modal-title text-green" id="bookingDeleteModalSmLabel">Confirm
                             Deletion</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">Delete this booking?</div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <!-- use a form to post to the view so that I dont need to render a new template -->
+                        <!-- use a form to post to the view so that I don't need to render a new template -->
                         <form method="post" action="{% url 'delete_booking' %}">
                             {% csrf_token %}
                             <input type="hidden" name="booking_id" value="{{ booking.id }}">
