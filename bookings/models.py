@@ -52,7 +52,7 @@ def add_booking_to_class(sender, instance, **kwargs):
     # only save the booking count
     art_class.save(update_fields=['bookings_count'])
 
- # Use the post_delete signal from the booking model to set the booking count of the associated art class
+# Use the post_delete signal from the booking model to set the booking count of the associated art class
 @receiver(post_delete, sender=Booking)
 def remove_booking_from_class(sender, instance, **kwargs):
     # Decrease the bookings_count of the associated ArtClass
@@ -61,4 +61,3 @@ def remove_booking_from_class(sender, instance, **kwargs):
     art_class.bookings_count = remaining_bookings_count
     # only save the booking count
     art_class.save(update_fields=['bookings_count'])
-    

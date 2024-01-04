@@ -4,7 +4,7 @@ from django.urls import reverse, reverse_lazy
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib import messages
 from .models import Booking
-from .forms import BookingForm
+from .forms import BookingForm, EditBookingForm
 
 class CreateBookingView(LoginRequiredMixin, generic.CreateView):
     model = Booking
@@ -25,7 +25,7 @@ class CreateBookingView(LoginRequiredMixin, generic.CreateView):
 class EditBookingView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Booking
     template_name = 'edit_booking.html'
-    form_class = BookingForm
+    form_class = EditBookingForm
 
     # Override the get success url to redirect back to the specific user profile page 
     def get_success_url(self):
