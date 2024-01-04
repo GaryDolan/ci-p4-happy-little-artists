@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import RegexValidator
+from django.db.models import F
 from .models import Booking, ArtClass
 
 # Use the same form for booking and editing booking 
@@ -22,6 +23,14 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # set the values of the are class field to all available art classes
-        self.fields['art_class'].queryset=ArtClass.objects.all()
+        
+        # set the values of the art class field to a dropdown(queryset)of all art classes that are not full
+        # F allows comparison of 2 model fields in filters
+        self.fields['art_class'].queryset = ArtClass.objects.filter(bookings_count__lt=F("max_bookings"))
 
+        # if there are entries in the query
+        if not self.fields['art_class'].queryset.exists():
+            # use the widget to modify the art class fields disabled attribute
+            self.fields['art_class'].widget.attrs.update ({'disabled': True})
+            self.fields['art_class'].help_text = 'All classes are full. Please try again later.'
+            self.fields['art_class'].label = 'Art Class (All full)'
