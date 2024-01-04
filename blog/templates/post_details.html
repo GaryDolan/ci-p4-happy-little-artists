@@ -140,8 +140,14 @@
                         {% for comment in comments %}
                         <li>
                             <p>{{comment.comment_text}}</p>
-                            <p class="text-right">Comment by <strong>{{comment.user.username}}</strong> on
-                                {{comment.created_on}}</p>
+                            <p class="text-right">Comment by
+                                <strong>
+                                    <a href="{% url 'profile' username=comment.user.username %}">
+                                        {{ comment.user.username }}
+                                    </a>
+                                </strong> on
+                                {{comment.created_on}}
+                            </p>
                             <hr class="custom-hr">
                         </li>
                         {% endfor %}
