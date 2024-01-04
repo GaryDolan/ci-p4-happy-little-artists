@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}401 error{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center text-center mt-3">
+        <div class="col-lg-8 mt-2 mb-3 bg-off-white rounded-2">
+            <h1 class="text-decoration-underline text-green my-3">401 error - Unauthorized</h1>
+            <p>Access Denied! You must authenticate yourself to access this resource. Please provide valid credentials
+                or log in to continue. You can return to the homepage using the button below. </p>
+            <a href="{% url 'home' %}" class="btn btn-small mb-3"> Home</a>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
