@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
             <!-- col 5 used as I use margins -->
             <div class="col-11 col-lg-5 bg-off-white rounded mt-5">
-                <h2 class="text-green text-center text-decoration-underline">User Information</h2>
+                <h2 class="text-green text-center text-decoration-underline mb-4 mt-3">User Information</h2>
                 <p><strong>First Name:</strong> {{ profile.user.first_name }}</p>
                 <p><strong>Last Name:</strong> {{ profile.user.last_name }}</p>
                 <p><strong>Member Since:</strong> {{ profile.user.date_joined|date:"F d, Y" }}</p>
@@ -38,7 +38,7 @@
                 {% endif %}
             </div>
             <div class="col-11 col-lg-5 ms-lg-5 bg-off-white rounded mt-5">
-                <h2 class="text-green text-center text-decoration-underline">About Me</h2>
+                <h2 class="text-green text-center text-decoration-underline mb-4 mt-3">About Me</h2>
                 {% if profile.about_me %}
 
                 <p>{{ profile.about_me | safe }}</p>

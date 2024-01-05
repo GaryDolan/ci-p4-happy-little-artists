@@ -149,6 +149,23 @@
 }
 
 /************************** GLOBAL ************************/
+/* Body */
+html {
+    min-height: 100vh;
+    margin: 0;
+}
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    /* Take up all available space in parent element */
+    flex: 1;
+}
+
 /* Headings */
 h1,
 h2,
