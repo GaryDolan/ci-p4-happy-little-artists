@@ -1,17 +1,16 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 
 {% block title %}404 error{% endblock %}
 
 {% block content %}
 
 <div class="container">
-    <div class="row justify-content-center text-center mt-3">
-        <div class="col-lg-8 mt-2 mb-3 bg-off-white rounded-2">
-            <h1 class="text-decoration-underline text-green my-3">404 error - Not Found</h1>
+    <div class="row justify-content-center text-center mt-5">
+        <div class="col-10 col-lg-8 mt-2 bg-off-white rounded-2">
+            <h1 class="text-decoration-underline text-green my-4">404 error - Not Found</h1>
             <p>The page you're looking for doesn't exist. Please check your URL and try again. You can return to the
                 homepage using the button below. </p>
-            <a href="{% url 'home' %}" class="btn btn-small mb-3"> Home</a>
+            <a href="{% url 'home' %}" class="btn btn-small my-4"> Home</a>
 
         </div>
     </div>
