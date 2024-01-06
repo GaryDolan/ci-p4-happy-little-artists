@@ -4,7 +4,6 @@ from django.db.models import F, Q
 from django.utils.safestring import mark_safe
 from .models import Booking, ArtClass
 
-# Use the same form for booking and editing booking
 class BookingForm(forms.ModelForm):
 
     #define regex validators
