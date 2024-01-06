@@ -485,10 +485,6 @@ footer h2 {
     color: black;
 }
 
-.generated-forms input[type="text"] {
-    font-size: 2rem;
-}
-
 /********************* BOOK A CLASS PAGE *******************/
 
 /* custom class I added to the create a booking forms art class fields, help_text and label attributes */
