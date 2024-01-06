@@ -206,6 +206,29 @@ ul {
     text-align: right;
 }
 
+.btn-small {
+    background-color: var(--purple);
+    color: white;
+    font-family: var(--text-font);
+    font-weight: 600;
+    border-radius: 1rem;
+    border: 0.15rem solid var(--grey);
+}
+
+.btn-small:hover {
+    filter: brightness(1.2);
+    background-color: var(--purple);
+    color: white;
+    transform: scale(1.2);
+    filter: brightness(1.2);
+    border: 0.15rem solid var(--grey);
+}
+
+.selectable-feedback:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
 /*************************** BASE *************************/
 /* Header */
 .header-brand h1 {
@@ -407,29 +430,6 @@ footer h2 {
     font-weight: 600;
 }
 
-.btn-small {
-    background-color: var(--purple);
-    color: white;
-    font-family: var(--text-font);
-    font-weight: 600;
-    border-radius: 1rem;
-    border: 0.15rem solid var(--grey);
-}
-
-.btn-small:hover {
-    filter: brightness(1.2);
-    background-color: var(--purple);
-    color: white;
-    transform: scale(1.2);
-    filter: brightness(1.2);
-    border: 0.15rem solid var(--grey);
-}
-
-.selectable-feedback:hover {
-    transform: scale(1.02);
-    filter: brightness(1.05);
-}
-
 /* post detailed view */
 .post-img {
     border: 0.25rem solid var(--grey);
@@ -494,6 +494,15 @@ footer h2 {
 /* custom class I added to the create a booking forms art class fields, help_text and label attributes */
 .classes_full {
     color: var(--red);
+}
+
+/*********************** ABOUT US PAGE *********************/
+.teacher-img {
+    width: 80%;
+}
+
+.structure-img {
+    width: 100%;
 }
 
 /*********************** MEDIA QUERIES *********************/

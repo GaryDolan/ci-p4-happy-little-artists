@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <!-- About us -->
+    <section class="mb-4">
+        <div class="row d-flex justify-content-center">
+            <h1 class="text-green text-center">About Us</h1>
+            <div class="col">
+                <p>Happy Little Artists Art Club is a place where creativity thrives and young minds flourish. Founded
+                    in 2024 by Amanda, a passionate and experienced primary school teacher, our art classes offer a
+                    delightful journey into the world of imagination and self-expression. Nestled in Ballyowen Castle
+                    Community Center, we cater to children aged 5-10. Here a Happy Little Artists we believes that every
+                    child is an artist, and our mission is to nurture their creativity in a fun and supportive
+                    environment.
+                    {% if user.is_authenticated %}
+                    <a class="text-purple bold" href="{% url 'create_booking' %}">Join us</a>
+                    {% else %}
+                    <a class="text-purple bold" href="{% url 'account_login' %}">Join us</a>
+                    {% endif %} and watch your child's artistic journey unfold, filled with laughter, color,
+                    and boundless creativity!
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Club owner and teacher -->
+    <section class="my-4">
+        <div class="row d-flex align-items-center">
+            <!-- show heading here until mid size  -->
+            <h2 class="d-block d-md-none text-center text-md-left text-green mt-2">Our Teacher</h2>
+            <div class="col-md-5 d-flex justify-content-center">
+                <img src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1704497856/media/p4/20191216_163724_glbgy5.webp"
+                    alt="Picture of art class teacher" class="mb-3 teacher-img border border-secondary rounded">
+            </div>
+            <div class="col-md-7">
+                <!-- show heading here after mid size  -->
+                <h2 class="d-none d-md-block text-green">Our Teacher</h2>
+                <p>Our teacher, Amanda, is not only a seasoned primary school teacher with almost 20
+                    years of experience
+                    but also a passionate artist dedicated to bringing out the best in young minds. Having run art
+                    classes for over 15 years, Amanda's love for art and teaching inspired her to create Happy Little
+                    Artists Art Club. Her goal is to ignite a lifelong love for art in children, fostering creativity,
+                    confidence, and a sense of accomplishment. Amanda believes that every child has a unique artistic
+                    voice, and her classes are designed to make art accessible and enjoyable for all.
+                    {% if user.is_authenticated %}
+                    <a class="text-purple bold" href="{% url 'create_booking' %}">Join us</a>
+                    {% else %}
+                    <a class="text-purple bold" href="{% url 'account_login' %}">Join us</a>
+                    {% endif %} and let
+                    Amanda guide your child on a colorful journey of self-discovery!
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col mx-auto">
+            <hr class="my-0 d-none d-md-block custom-hr">
+        </div>
+    </div>
+    <!-- Class structure -->
+    <section class="my-4">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-7">
+                <h2 class="text-green text-center text-md-left mt-2">Class Structure</h2>
+                <p>At Happy Little Artists Art Club, we follow an exciting and enriching class structure designed by
+                    Amanda. Our classes, held over ten-week periods, provide children with a foundation in the elements
+                    of art: line, shape, color, tone, texture, form, and space. Amanda's approach is fun, engaging, and
+                    accessible to all children, regardless of their artistic background. Each term builds upon these
+                    elements, allowing children to explore and express their creativity freely. Through art, we aim to
+                    develop not only their artistic skills but also essential life skills such as confidence,
+                    self-esteem, concentration, and patience.
+                    {% if user.is_authenticated %}
+                    <a class="text-purple bold" href="{% url 'create_booking' %}">Join us</a>
+                    {% else %}
+                    <a class="text-purple bold" href="{% url 'account_login' %}">Join us</a>
+                    {% endif %} and watch your child blossom into a confident and
+                    expressive artist, gaining valuable experiences that will last a lifetime!
+                </p>
+            </div>
+            <div class="col-md-5 d-flex justify-content-center">
+                <img src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1704499749/media/p4/art-supplies_uxmfek.webp"
+                    alt="Picture of art supplies" class="structure-img border border-secondary rounded">
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="col mx-auto">
+            <hr class="my-0 d-none d-md-block custom-hr">
+        </div>
+    </div>
+    <section class="my-4">
+        <!-- Find us -->
+        <div class="row">
+            <h2 class="text-green text-center">Find Us</h2>
+            <!-- Details -->
+            <div class="col-md-4"></div>
+            <!-- Map -->
+            <div class="col-md-8"></div>
+        </div>
+    </section>
+    {% endblock %}
+</div>
