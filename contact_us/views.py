@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib import messages
 from .forms import ContactUsForm
 
 class ContactUsView(View):
     form_class = ContactUsForm
+    template_name = 'contact_us.html'
     
 
     def get (self, request):
@@ -19,4 +21,16 @@ class ContactUsView(View):
         
         form = self.form_class(initial=initial)
         
-        return render(request, 'contact_us.html', {'current_page': current_page, 'form':form})
+        return render(request, self.template_name, {'current_page': current_page, 'form':form})
+    
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            # Send email using form info and using EmailJS
+
+            # Redirect the user home and display a success message
+            messages.success(request, 'We have received you message and will be in touch soon.')
+            return redirect('home')
+        # form was not valid, return to form page and display message 
+        messages.warning(request, 'Form invalid please try again')
+        return render(request, self.template_name, {'form': form})
