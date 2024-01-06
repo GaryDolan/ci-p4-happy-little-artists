@@ -9,7 +9,7 @@
     <section>
         <div class="row mb-5 justify-content-center">
             <div class="col-lg-8 col-md-10 d-flex justify-content-center align-items-center position-relative">
-                <img class="img-fluid"
+                <img class="img-fluid rounded"
                     src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1703355139/media/p4/hero-image_tpcazv.webp"
                     alt="Boy painting a picture">
                 <div class="position-absolute bottom-0 btn-book-wrapper">
@@ -42,20 +42,26 @@
                         each child, providing a space where they can explore, experiment, and find joy in their artistic
                         endeavors.
                     </p>
-                    <p class="text-center">Ready to Ignite Your Child's Creativity? <a class="text-purple bold"
-                            href=" #">Book
-                            Now</a> and Join the Fun!
+                    <p class="text-center">Ready to Ignite Your Child's Creativity?
+                        {% if user.is_authenticated %}
+                        <a class="text-purple bold" href="{% url 'create_booking' %}">Book Now</a> and Join the Fun!
+                        {% else %}
+                        <a class="text-purple bold" href="{% url 'account_login' %}">Book Now</a> and Join the Fun!
+                        {% endif %}
                     </p>
                 </div>
                 <div class="d-block d-sm-none px-1 text-grey">
                     <p>
                         Welcome to a world where creativity knows no bounds and imagination takes flight—welcome to
-                        Happy
-                        Little Artists Art Club!
+                        Happy Little Artists Art Club!
                     </p>
-                    <p class="text-center">Ready to Ignite Your Child's Creativity? <a class="text-purple bold"
-                            href=" #">Book
-                            Now</a> and Join the Fun!</p>
+                    <p class="text-center">Ready to Ignite Your Child's Creativity?
+                        {% if user.is_authenticated %}
+                        <a class="text-purple bold" href="{% url 'create_booking' %}">Book Now</a> and Join the Fun!
+                        {% else %}
+                        <a class="text-purple bold" href="{% url 'account_login' %}">Book Now</a> and Join the Fun!
+                        {% endif %}
+                    </p>
                 </div>
             </div>
         </div>
