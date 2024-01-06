@@ -450,7 +450,7 @@ footer h2 {
 }
 
 /*********************** PROFILE PAGE *********************/
-.profile_pic {
+.profile-pic {
     width: 20rem;
     height: 20rem;
     border-radius: 50%;
@@ -471,7 +471,7 @@ footer h2 {
 
 /********************* EDIT PROFILE PAGE *******************/
 
-.generated_forms label {
+.generated-forms label {
     color: var(--green);
     font-family: var(--text-font);
     font-weight: bold;
@@ -481,18 +481,18 @@ footer h2 {
     text-decoration: underline;
 }
 
-.generated_forms a {
+.generated-forms a {
     color: black;
 }
 
-.generated_forms input[type="text"] {
+.generated-forms input[type="text"] {
     font-size: 2rem;
 }
 
 /********************* BOOK A CLASS PAGE *******************/
 
 /* custom class I added to the create a booking forms art class fields, help_text and label attributes */
-.classes_full {
+.classes-full {
     color: var(--red);
 }
 
@@ -549,7 +549,7 @@ footer h2 {
         font-size: 1em;
     }
     /* PROFILE PAGE */
-    .profile_pic {
+    .profile-pic {
         width: 15rem;
         height: 15rem;
     }

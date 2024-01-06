@@ -11,10 +11,10 @@
         <div class="row justify-content-center">
             <div class="col text-center mt-2">
                 {% if profile.profile_pic %}
-                <img class="img profile_pic" src="{{ profile.profile_pic.url }}"
+                <img class="img profile-pic" src="{{ profile.profile_pic.url }}"
                     alt="{{profile.user.username}}'s profile picture">
                 {% else %}
-                <img class="img profile_pic"
+                <img class="img profile-pic"
                     src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1703902268/media/p4/blank-profile-picture_qsqrmn.webp"
                     alt="Blank profile picture">
                 {% endif %}
