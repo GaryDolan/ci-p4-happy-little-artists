@@ -537,6 +537,16 @@ footer h2 {
     .btn-book {
         margin-bottom: 0.5em;
     }
+    /* ABOUT US */
+    .au-teacher {
+        margin: 0 !important;
+    }
+    .au-teacher .col-md-7 p {
+        margin-bottom: 0;
+    }
+    .au-teacher h2 {
+        margin-top: 0 !important;
+    }
 }
 
 /* 575px sm */
