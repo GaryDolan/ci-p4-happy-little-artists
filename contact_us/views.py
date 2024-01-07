@@ -28,14 +28,15 @@ class ContactUsView(View):
     
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
+
         if form.is_valid():
             # Retrieve the sender details
             from_name = self.request.POST.get('name')
             from_email = self.request.POST.get('email')
             enquiry = self.request.POST.get('message')
-
+            # Send email using form details
             try:
-                # Send email using form details
+                
                 send_mail(
                     subject='Happy little artists enquiry',
                     # using html message instead
