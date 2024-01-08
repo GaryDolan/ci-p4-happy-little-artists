@@ -30,6 +30,7 @@ class ContactUsView(View):
             # set up the name key value pair
             initial['name'] = (
                 f"{request.user.first_name} {request.user.last_name}")
+            initial['email'] = request.user.email
         else:
             initial = {}
 
