@@ -36,7 +36,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Can be added to Heroku as a config var if debug on heroku is needed.
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['happy-little-artists-f3eca52b3ca8.herokuapp.com', 'localhost', '127.0.0.1', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['happy-little-artists-f3eca52b3ca8.herokuapp.com',
+                 'localhost',
+                 '127.0.0.1',
+                 '127.0.0.1:8000']
 
 
 # Application definition
@@ -70,7 +73,7 @@ INSTALLED_APPS = [
 ]
 
 # Allauth login/Registration
-SITE_ID  = 1
+SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -125,7 +128,8 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 # Database selection for local or remote
 if 'DATABASE_URL' in os.environ:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+    DATABASES = {'default': dj_database_url.parse(
+        os.environ.get('DATABASE_URL'))}
 else:
     DATABASES = {
         'default': {
@@ -140,16 +144,20 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+        'NumericPasswordValidator',
     },
 ]
 
@@ -174,7 +182,8 @@ CLOUIDNARY_URL = os.environ.get('CLOUDINARY_URL')
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = (
+    'cloudinary_storage.storage.StaticHashedCloudinaryStorage')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -192,5 +201,5 @@ EMAIL_HOST = socket.gethostbyname('smtp.gmail.com')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('GMAIL_ADDRESS')
-EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD') 
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = os.environ.get('GMAIL_ADDRESS')
