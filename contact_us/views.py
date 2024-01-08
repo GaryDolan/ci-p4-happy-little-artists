@@ -55,7 +55,6 @@ class ContactUsView(View):
             enquiry = self.request.POST.get('message')
             # Send email using form details
             try:
-
                 send_mail(
                     subject='Happy little artists enquiry',
                     # using html message instead
