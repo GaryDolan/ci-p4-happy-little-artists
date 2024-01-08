@@ -416,25 +416,28 @@ footer h2 {
 }
 
 /*************************** HOME *************************/
-.btn-book {
+.btn-style {
     border: 0.1rem solid black;
+    border-radius: 0.5rem;
     text-align: center;
     background: var(--purple);
     color: white;
     font-weight: 600;
+    font-size: 1.25rem;
     font-family: var(--heading-font);
     width: 13rem;
-    margin-bottom: 4rem;
+    margin-top: 25rem;
+    padding: 0.5rem 1rem;
 }
 
-.btn-book:hover {
+.btn-style:hover {
     border: 0.1rem solid black;
     text-align: center;
     background: var(--purple);
     color: white;
     font-weight: 600;
     font-family: var(--heading-font);
-    transform: scale(1.2);
+    transform: scale(1.05);
     filter: brightness(1.2);
 }
 
@@ -531,20 +534,34 @@ footer h2 {
 }
 
 /*********************** MEDIA QUERIES *********************/
+/* 1460px */
+@media screen and (max-width: 91.25em) {
+    /* HOME */
+    .btn-style {
+        margin-top: 15em;
+    }
+}
+
 /* 1200px */
 @media screen and (max-width: 75em) {
     /* HOME */
     .recent-news-posts h5 {
-        font-size: 1.3rem;
+        font-size: 1.3em;
+    }
+    .btn-style {
+        width: 10em;
+        margin-top: 12.5em;
     }
 }
 
 /* 992px lg*/
 @media screen and (max-width: 62em) {
     /* HOME */
-    .btn-book {
+    .btn-style {
+        font-size: 1em;
         width: 10em;
-        margin-bottom: 2em;
+        margin-top: 15em;
+        padding: 0.25em 0.5em;
     }
     /* CLUB NEWS */
     .club-news-posts h5 {
@@ -559,8 +576,11 @@ footer h2 {
         padding-left: 0.5em;
     }
     /* HOME */
-    .btn-book {
-        margin-bottom: 0.5em;
+    .btn-style {
+        font-size: 1em;
+        width: 10em;
+        margin-top: 14em;
+        padding: 0.25em 0.5em;
     }
     /* ABOUT US */
     .au-teacher {
@@ -583,6 +603,11 @@ footer h2 {
     .navbar-toggler {
         font-size: 1em;
     }
+    /* HOME */
+    .btn-style {
+        margin-top: 11em;
+    }
+
     /* PROFILE PAGE */
     .profile-pic {
         width: 15rem;
@@ -603,6 +628,11 @@ footer h2 {
     .recent-news-posts h5 {
         font-size: 1rem;
     }
+    .btn-style {
+        font-size: 0.875em;
+        width: 8em;
+        margin-top: 9em;
+    }
     /* CLUB NEWS */
     .news-posts h5 {
         font-size: 1rem;
@@ -618,6 +648,12 @@ footer h2 {
     /* Social icons */
     .social-icons a {
         margin-right: 0;
+    }
+    /* HOME */
+    .btn-style {
+        font-size: 0.875em;
+        width: 6em;
+        margin-top: 7.5em;
     }
 }
 
