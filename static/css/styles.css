@@ -533,6 +533,11 @@ footer h2 {
     width: 100%;
 }
 
+/* map  */
+.g-map iframe {
+    width: 100%;
+}
+
 /*********************** MEDIA QUERIES *********************/
 /* 1460px */
 @media screen and (max-width: 91.25em) {
