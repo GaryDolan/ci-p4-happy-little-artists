@@ -6,108 +6,104 @@
 
 {% block content %}
 
-<article>
-    <!-- Content -->
-    <section class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 col-xl-10">
-                <h2 class="text-center text-green">{{ post.title }}</h2>
-                <p class=" px-1 text-grey">{{ post.content | safe }}
-                </p>
-            </div>
+<!-- Content -->
+<section class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-xl-10">
+            <h2 class="text-center text-green">{{ post.title }}</h2>
+            <p class=" px-1 text-grey">{{ post.content | safe }}</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Images -->
-    <section class="container">
-        <!-- feature img -->
-        <div class="row d-flex justify-content-center mt-3">
-            <div class="col-lg-8 col-xl-6">
-                <a href="{{ post.featured_img.url }}" data-lightbox="post-images">
-                    <img src="{{ post.featured_img.url }}" alt="{{ post.title }} image" class="img-fluid post-img">
-                </a>
-            </div>
+<!-- Images -->
+<div class="container">
+    <!-- feature img -->
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="col-lg-8 col-xl-6">
+            <a href="{{ post.featured_img.url }}" data-lightbox="post-images">
+                <img src="{{ post.featured_img.url }}" alt="{{ post.title }} image" class="img-fluid post-img">
+            </a>
         </div>
+    </div>
 
-        <!-- Additional images -->
-        <div class="row d-flex justify-content-center">
-            {% if post.additional_img1 %}
-            <div class="col-6 col-sm-4 col-lg-2 mt-3">
-                <a href="{{ post.additional_img1.url }}" data-lightbox="post-images">
-                    <img src="{{ post.additional_img1.url }}" alt="{{ post.title }} image"
-                        class="img-fluid post-img post-details-thumb">
-                </a>
-            </div>
-            {% endif %}
-
-            {% if post.additional_img2 %}
-            <div class="col-6 col-sm-4 col-lg-2 mt-3">
-                <a href="{{ post.additional_img2.url }}" data-lightbox="post-images">
-                    <img src="{{ post.additional_img2.url }}" alt="{{ post.title }} image"
-                        class="img-fluid post-img post-details-thumb">
-                </a>
-            </div>
-            {% endif %}
-
-            {% if post.additional_img3 %}
-            <div class="col-6 col-sm-4 col-lg-2 mt-3">
-                <a href="{{ post.additional_img3.url }}" data-lightbox="post-images">
-                    <img src="{{ post.additional_img3.url }}" alt="{{ post.title }} image"
-                        class="img-fluid post-img post-details-thumb">
-                </a>
-            </div>
-            {% endif %}
-
-            {% if post.additional_img4 %}
-            <div class="col-6 col-sm-4 col-lg-2 mt-3">
-                <a href="{{ post.additional_img4.url }}" data-lightbox="post-images">
-                    <img src="{{ post.additional_img4.url }}" alt="{{ post.title }} image"
-                        class="img-fluid post-img post-details-thumb">
-                </a>
-            </div>
-            {% endif %}
-
-            {% if post.additional_img5 %}
-            <div class="col-6 col-sm-4 col-lg-2 mt-3">
-                <a href="{{ post.additional_img5.url }}" data-lightbox="post-images">
-                    <img src="{{ post.additional_img5.url }}" alt="{{ post.title }} image"
-                        class="img-fluid post-img post-details-thumb">
-                </a>
-            </div>
-            {% endif %}
+    <!-- Additional images -->
+    <div class="row d-flex justify-content-center">
+        {% if post.additional_img1 %}
+        <div class="col-6 col-sm-4 col-lg-2 mt-3">
+            <a href="{{ post.additional_img1.url }}" data-lightbox="post-images">
+                <img src="{{ post.additional_img1.url }}" alt="{{ post.title }} image"
+                    class="img-fluid post-img post-details-thumb">
+            </a>
         </div>
-        <!-- Created by, like and comment counts/icons -->
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-10">
-                <div class="post-subtitle text-right">Post created by <strong>{{ post.author }}</strong> on
-                    {{post.created_on}}</div>
-                <div class="text-right mt-1 text-lg likes-comment">
-                    <strong>
-                        {{ post.number_of_likes }}
-                        {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                            {% csrf_token %}
-                            {% if liked %}
-                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="text-purple"
-                                style="border: none; background: transparent"><i class="fas fa-thumbs-up"></i></button>
-                            {% else %}
-                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="text-purple"
-                                style="border: none; background: transparent"><i class="far fa-thumbs-up"></i></button>
-                            {% endif %}
-                        </form>
+        {% endif %}
+
+        {% if post.additional_img2 %}
+        <div class="col-6 col-sm-4 col-lg-2 mt-3">
+            <a href="{{ post.additional_img2.url }}" data-lightbox="post-images">
+                <img src="{{ post.additional_img2.url }}" alt="{{ post.title }} image"
+                    class="img-fluid post-img post-details-thumb">
+            </a>
+        </div>
+        {% endif %}
+
+        {% if post.additional_img3 %}
+        <div class="col-6 col-sm-4 col-lg-2 mt-3">
+            <a href="{{ post.additional_img3.url }}" data-lightbox="post-images">
+                <img src="{{ post.additional_img3.url }}" alt="{{ post.title }} image"
+                    class="img-fluid post-img post-details-thumb">
+            </a>
+        </div>
+        {% endif %}
+
+        {% if post.additional_img4 %}
+        <div class="col-6 col-sm-4 col-lg-2 mt-3">
+            <a href="{{ post.additional_img4.url }}" data-lightbox="post-images">
+                <img src="{{ post.additional_img4.url }}" alt="{{ post.title }} image"
+                    class="img-fluid post-img post-details-thumb">
+            </a>
+        </div>
+        {% endif %}
+
+        {% if post.additional_img5 %}
+        <div class="col-6 col-sm-4 col-lg-2 mt-3">
+            <a href="{{ post.additional_img5.url }}" data-lightbox="post-images">
+                <img src="{{ post.additional_img5.url }}" alt="{{ post.title }} image"
+                    class="img-fluid post-img post-details-thumb">
+            </a>
+        </div>
+        {% endif %}
+    </div>
+    <!-- Created by, like and comment counts/icons -->
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-10">
+            <div class="post-subtitle text-right">Post created by <strong>{{ post.author }}</strong> on
+                {{post.created_on}}</div>
+            <div class="text-right mt-1 text-lg likes-comment">
+                <strong>
+                    {{ post.number_of_likes }}
+                    {% if user.is_authenticated %}
+                    <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                        {% csrf_token %}
+                        {% if liked %}
+                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class="text-purple"
+                            style="border: none; background: transparent"><i class="fas fa-thumbs-up"></i></button>
                         {% else %}
-                        <span><i class="far fa-thumbs-up text-purple"></i></span>
+                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class="text-purple"
+                            style="border: none; background: transparent"><i class="far fa-thumbs-up"></i></button>
                         {% endif %}
+                    </form>
+                    {% else %}
+                    <span><i class="far fa-thumbs-up text-purple"></i></span>
+                    {% endif %}
 
-                    </strong>
+                </strong>
 
-                    <strong> {{ post.number_of_comments }} <i class="far fa-comments text-green"></i></strong>
-                </div>
-                <hr class="custom-hr">
+                <strong> {{ post.number_of_comments }} <i class="far fa-comments text-green"></i></strong>
             </div>
+            <hr class="custom-hr">
         </div>
-
-    </section>
+    </div>
 
     <!-- Comments section-->
     <section class="container mt-3">
@@ -159,7 +155,5 @@
             </div>
         </div>
     </section>
-
-</article>
-
+</div>
 {% endblock %}
