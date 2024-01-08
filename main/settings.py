@@ -36,6 +36,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # Can be added to Heroku as a config var if debug on heroku is needed.
 DEBUG = 'DEVELOPMENT' in os.environ
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['happy-little-artists-f3eca52b3ca8.herokuapp.com',
                  'localhost',
                  '127.0.0.1',
