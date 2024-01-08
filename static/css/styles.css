@@ -12,21 +12,27 @@
     --green-faded: rgba(38, 100, 65, 0.1);
     --green-bright: #16f530;
     --green-bright-slightly-faded: rgba(22, 245, 48, 0.8);
-    --green-bright-faded: rgba(22, 245, 48, 0.3);
+    --green-bright-faded: rgba(22, 245, 48, 0.5);
+    --green-bright-really-faded: rgba(22, 245, 48, 0.04);
     --purple: #8402cf;
     --purple-slightly-faded: rgba(132, 2, 207, 0.8);
     --purple-faded: rgba(132, 2, 207, 0.3);
+    --purple-really-faded: rgba(132, 2, 207, 0.2);
     --yellow: #f5df16;
     --yellow-faded: rgba(245, 223, 22, 0.3);
+    --yellow-really-faded: rgba(245, 223, 22, 0.2);
     --orange: #f29018;
     --orange-slightly-faded: rgba(242, 144, 24, 0.8);
     --orange-faded: rgba(242, 144, 24, 0.3);
+    --orange-really-faded: rgba(242, 144, 24, 0.1);
     --blue: #1536ed;
     --blue-slightly-faded: rgba(21, 54, 237, 0.8);
     --blue-faded: rgba(21, 54, 237, 0.3);
+    --blue-really-faded: rgba(21, 54, 237, 0.1);
     --red: #ed2415;
     --red-slightly-faded: rgba(237, 36, 21, 0.8);
     --red-faded: rgba(237, 36, 21, 0.3);
+    --red-really-faded: rgba(237, 36, 21, 0.05);
     --red-dark: #d32f2f;
     --red-dark-slightly-faded: rgba(211, 47, 47, 0.8);
     --grey: #595959;
@@ -137,6 +143,29 @@
 }
 .bg-red-f {
     background-color: var(--red-faded);
+}
+
+/* background colours really faded */
+.bg-yellow-rf {
+    background-color: var(--yellow-really-faded);
+}
+.bg-purple-rf {
+    background-color: var(--purple-really-faded);
+}
+
+.bg-green-b-rf {
+    background-color: var(--green-bright-really-faded);
+}
+
+.bg-orange-rf {
+    background-color: var(--orange-really-faded);
+}
+
+.bg-blue-rf {
+    background-color: var(--blue-really-faded);
+}
+.bg-red-rf {
+    background-color: var(--red-really-faded);
 }
 
 /* Text formatting */

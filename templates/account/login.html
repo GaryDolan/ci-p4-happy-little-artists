@@ -12,12 +12,12 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 mt-2 mb-3 bg-off-white rounded-2">
+        <div class="col-10 col-sm-8 col-md-6 col-lg-4 col-xl-3 mt-2 mb-3 bg-yellow-rf rounded-2">
             <form method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <button class="btn btn-small my-3" type="submit">Sign In</button>
             </form>
