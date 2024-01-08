@@ -2,6 +2,7 @@
 Forms for handling editing profile and user info in the profiles app.
 """
 from django import forms
+from django.core.validators import RegexValidator
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from .models import Profile
@@ -13,6 +14,28 @@ class EditUserForm(UserChangeForm):
     """
     # Remove the password field
     password = None
+
+    #define regex validators
+
+    # Only letters and spaces
+    name_validator = RegexValidator(
+        regex=r'^[a-zA-Z\s]+$',
+        message='Only letters and spaces are allowed.',
+        code='invalid_name')
+
+    first_name = forms.CharField(
+        max_length=20,
+        validators=[name_validator],
+        help_text="Enter name (letters only)")
+
+    last_name = forms.CharField(
+        max_length=20,
+        validators=[name_validator],
+        help_text="Enter name (letters only)")
+
+    email = forms.EmailField(
+        max_length=254,
+        help_text="Enter email address")
 
     class Meta:
         """
