@@ -39,6 +39,12 @@ class ArtClass(models.Model):
     bookings_count = models.IntegerField(default=0)
     max_bookings = models.IntegerField(default=20)
 
+    class Meta:
+        """
+        Defines the display ordering (descending) of the bookings model
+        """
+        ordering = ['-start_date']
+
     def __str__(self):
         """
         Returns a string based on the art class title

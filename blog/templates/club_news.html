@@ -25,7 +25,7 @@
     </section>
 
     <!-- Club News Posts -->
-    <section class="news-posts container mt-2">
+    <div class="news-posts container mt-2">
         <!-- Newest post -->
         <div class="row d-flex justify-content-center">
             {% for post in posts %}
@@ -62,7 +62,7 @@
             </div>
             {% endfor %}
         </div>
-    </section>
+    </div>
 
     <!-- Pagination -->
     {% if is_paginated %}
