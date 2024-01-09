@@ -66,7 +66,6 @@ INSTALLED_APPS = [
 
     # Apps
     'about_us',
-    'authentication',
     'blog',
     'bookings',
     'contact_us',
