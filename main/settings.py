@@ -43,6 +43,7 @@ ALLOWED_HOSTS = ['happy-little-artists-f3eca52b3ca8.herokuapp.com',
                  '127.0.0.1',
                  '127.0.0.1:8000']
 
+CSRF_ALLOWED_ORIGINS = ['https://happy-little-artists-f3eca52b3ca8.herokuapp.com']
 
 # Application definition
 
