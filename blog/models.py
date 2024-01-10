@@ -21,29 +21,29 @@ class Post(models.Model):
     description = models.CharField(
         max_length=200, help_text='Enter a brief post description')
     featured_img = ResizedImageField(
-        quality=100, upload_to="p4/post_images/", force_format='WEBP')
+        quality=75, upload_to="p4/post_images/", force_format='WEBP')
     additional_img1 = ResizedImageField(
-        quality=100,
+        quality=75,
         upload_to="p4/post_images/",
         force_format='WEBP',
         blank=True)
     additional_img2 = ResizedImageField(
-        quality=100,
+        quality=75,
         upload_to="p4/post_images/",
         force_format='WEBP',
         blank=True)
     additional_img3 = ResizedImageField(
-        quality=100,
+        quality=75,
         upload_to="p4/post_images/",
         force_format='WEBP',
         blank=True)
     additional_img4 = ResizedImageField(
-        quality=100,
+        quality=75,
         upload_to="p4/post_images/",
         force_format='WEBP',
         blank=True)
     additional_img5 = ResizedImageField(
-        quality=100,
+        quality=75,
         upload_to="p4/post_images/",
         force_format='WEBP',
         blank=True)
