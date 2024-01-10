@@ -8,7 +8,7 @@
     <!-- Hero Section -->
     <div class="row mb-5 justify-content-center">
         <div class="col-lg-8 col-md-10 d-flex justify-content-center align-items-center position-relative">
-            <img class="img-fluid rounded"
+            <img loading="lazy" class="img-fluid rounded"
                 src="https://res.cloudinary.com/dyr1n4krk/image/upload/v1704831374/media/p4/hero-image_o0hoxe.webp"
                 alt="Boy painting a picture">
             <div class="position-absolute btn-book-wrapper">
@@ -70,7 +70,7 @@
             <div class="col-xl-3 col-md-6 d-flex position-relative">
                 <article class="card border-secondary mb-4 flex-fill selectable-feedback">
                     <a href="{% url 'post_detail' post.slug %}">
-                        <img src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
+                        <img loading="lazy" src="{{ post.featured_img.url }}" class="img-fluid" alt="{{ post.title }}">
                         <div
                             class="position-absolute bottom-0 start-0 w-100 p-3 text-center {% cycle 'bg-green-sf' 'bg-purple-sf' 'bg-blue-sf' 'bg-red-d-sf' %}">
                             <h5 class="card-title mb-0">{{ post.title }}</h5>

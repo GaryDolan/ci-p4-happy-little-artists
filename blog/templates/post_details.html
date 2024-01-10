@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block extra_css %}
+<!-- Lightbox2 CSS -->
+<link rel="stylesheet" href="{% static 'lightbox2/css/lightbox.min.css' %}">
+{% endblock %}
+
+{% block jquery %}
+<!-- jQuery (needs to go before lightbox as it is a dependency) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+{% endblock %}
+
+{% block lighthouse %}
+<!-- Lightbox2 javascript -->
+<script src="{% static 'lightbox2/js/lightbox-plus-jquery.min.js' %}"></script>
+{% endblock %}
+
+
+
 {% load crispy_forms_tags %}
 
 {% block title %}Club News{% endblock %}
@@ -136,7 +155,7 @@
                         {% for comment in comments %}
                         <li>
                             <p>{{comment.comment_text}}</p>
-                            <p class="text-right">Comment by
+                            <p class="text-right">by
                                 <strong>
                                     <a href="{% url 'profile' username=comment.user.username %}">
                                         {{ comment.user.username }}
