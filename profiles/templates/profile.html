@@ -248,12 +248,9 @@
                         href=" ?page={{liked_posts.previous_page_number}}#liked_posts_section">Prev</a></li>
                 {% endif %}
 
-                <div class="row d-none d-sm-block">
-                    <div class="col">
-                        <li class="page-item disabled"><a class="page-link" href=" #"> Page {{liked_posts.number}} of
-                                {{liked_posts.paginator.num_pages}}</a></li>
-                    </div>
-                </div>
+                <li class="page-item disabled d-none d-sm-block"><a class="page-link" href=" #"> Page
+                        {{liked_posts.number}} of
+                        {{liked_posts.paginator.num_pages}}</a></li>
 
                 {% if liked_posts.has_next %}
                 <li class="page-item"><a class="page-link"
@@ -261,7 +258,7 @@
                 </li>
                 <li class="page-item"><a class="page-link"
                         href=" ?page={{liked_posts.paginator.num_pages}}#liked_posts_section">Last
-                        &raquo</a></li>
+                        &raquo;</a></li>
                 {% endif %}
             </ul>
         </nav>
