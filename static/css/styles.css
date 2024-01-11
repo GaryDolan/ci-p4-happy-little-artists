@@ -258,6 +258,10 @@ ul {
     filter: brightness(1.05);
 }
 
+.feedback:hover {
+    filter: brightness(2);
+}
+
 /*************************** BASE *************************/
 /* Header */
 .header-brand h1 {

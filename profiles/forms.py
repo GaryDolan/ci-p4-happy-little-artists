@@ -15,7 +15,7 @@ class EditUserForm(UserChangeForm):
     # Remove the password field
     password = None
 
-    #define regex validators
+    # define regex validators
 
     # Only letters and spaces
     name_validator = RegexValidator(

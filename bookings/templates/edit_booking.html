@@ -8,21 +8,22 @@
 
 
 <!-- Edit booking form section -->
-<section>
-    <div class="row justify-content-center mt-3">
-        <div class="col-sm-10 col-lg-8 col-xl-6 bg-blue-rf rounded">
-            <h1 class="text-center text-green mt-3 text-decoration-underline">Edit your art class booking</h1>
-            <!-- Edit booking form -->
-            <form method="post" class="generated-forms">
-                {% csrf_token %}
-                {{form | crispy }}
-                <div class="text-center mt-3 mb-3">
-                    <button type="submit" class="btn btn-small">Update booking</button>
-                </div>
-            </form>
+<div class="container">
+    <section>
+        <div class="row justify-content-center mt-3">
+            <div class="col-sm-10 col-lg-8 col-xl-6 bg-blue-rf rounded">
+                <h1 class="text-center text-green mt-3 text-decoration-underline">Edit your art class booking</h1>
+                <!-- Edit booking form -->
+                <form method="post" class="generated-forms">
+                    {% csrf_token %}
+                    {{form | crispy }}
+                    <div class="text-center mt-3 mb-3">
+                        <button type="submit" class="btn btn-small">Update booking</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>
 
 {% endblock %}

@@ -27,7 +27,7 @@ class ContactUsView(View):
         initial = {}
         # populate any details we already have for a logged in user
         if request.user.is_authenticated:
-            # set up the name key value pair
+            # set up the name  and email key value pairs
             initial['name'] = (
                 f"{request.user.first_name} {request.user.last_name}")
             initial['email'] = request.user.email

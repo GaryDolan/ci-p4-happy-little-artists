@@ -17,7 +17,6 @@ class CreateBookingView(LoginRequiredMixin, generic.CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'create_booking.html'
-    # Return to current users profile
 
     def form_valid(self, form):
         """
@@ -97,7 +96,6 @@ class DeleteBookingView(
         booking = get_object_or_404(Booking, id=booking_id)
         return booking.owner == self.request.user
 
-    # Get the booking id from form, delete and return to profile
     def post(self, request):
         """
         Handles the post request for deleting a booking.

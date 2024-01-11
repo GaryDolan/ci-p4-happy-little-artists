@@ -70,7 +70,7 @@ class BookingForm(forms.ModelForm):
             # use the widget to modify the art class fields disabled attribute
             self.fields['art_class'].widget.attrs.update({'disabled': True})
             self.fields['art_class'].help_text = mark_safe(
-                    '<span class="classes-full">All classes are full.'
+                    '<span class="classes-full">All classes are full. '
                     'Please try again later.</span>')
             self.fields['art_class'].label = mark_safe(
                 '<span class="classes-full">Art Class (All full).</span>')
