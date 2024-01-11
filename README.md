@@ -20,7 +20,7 @@ Happy Little Artists art club is a website designed for a local art club so its 
     - [Colour scheme](#colour-scheme)
     - [Typography](#typography)
     - [Wireframes](#wireframes)
-    - [Database Entity relationship diagram](#database-entity-relationship-diagram)
+    - [Database Entity relationship diagram](#database-erd)
     - [Agile Development](#agile-development)
         - [User stories and Epics](#user-stories-and-epics)
         - [Project backlog](#project-backlog)
@@ -351,9 +351,9 @@ All the wireframes for the website were created using the Balsamic desktop appli
 
 There were some deviations from the above wireframes as the website was developed, including not using images is placed which I initially planned to and modifications to form fields. I also decided to split the user account editing into two forms, edit info and edit profile. I finally decided on a different, more centered layout for the users profile page.
 
-## Database Entity relationship diagram
+## Database ERD
 
-My ERD can be seen below and represents the models in my database and their relationship to one another. I have 6 models which are the User, Profile, Post, Comment, Bookings, and art Class models. Their relationships in my ERD are as follows
+My Entity relationship diagram can be seen below and represents the models in my database and their relationship to one another. I have 6 models which are the User, Profile, Post, Comment, Bookings, and art Class models. Their relationships in my ERD are as follows
 
 -   The User has a one to many (Foreign Key) relationship with Bookings, as one user can have many bookings.
 -   The User has a one to one relationship with the Profile model, as one use can only have one profile.
@@ -407,101 +407,169 @@ Below is a explanation of the features of the Website. All elements of the websi
 
 The header brand is one of the elements that is common to all pages. By default is is the same green as all other headings. As discussed earlier it was important to the client that there was colour present in a non invasive way and some of this is evident in the header brand. The brand acts as a home button and when hovered over it will increase in size and change to a rainbow gradient. This can be seen on in the images below for both mobile and desktop.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of header brand mobile](/documentation/features/header-brand-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of header brand desktop](/documentation/features/header-brand-desktop.png)
+
+</details>
 
 ## Navigation
 
 The website navigation is also common to all pages of the website, it is simple, intuitive and easy to use. The page the user is currently viewing is highlighted by an underscore under the corresponding page name in the nav bar and will dynamically change as the user moves through its various pages. The navigation is another place I decided to introduce some colour. To keep the styling consistent I used the same rainbow colours that were used in the header brand but at a lower opacity to ensure excellent readability and ensure high accessibility. Each nav link in the nav bar will change to a different colour as the user hovers over it and this is true of sub menus in the dropdown as well.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of header brand mobile](/documentation/features/navigation-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of header brand desktop](/documentation/features/navigation-desktop.png)
 
-### Desktop(logged in)
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop(logged in)</summary>
 
 ![Image of header brand desktop](/documentation/features/navigation-desktop-logged-in.png)
+
+</details>
 
 ## Footer
 
 The footer is another item which is common to all pages in the website. When initially meeting the client, I showed her some of my previous work and she seemed to like the idea of a simple footer with just social media links in it via icons. As you may have guessed by now she wanted some colour in that too, so each icon is coloured according to its branding. When hovered over the icons will increase in size and brightness to supply the user with feedback to indicate to the user that they are clickable (this is a common idea throughout the website). If any of the social network icons are clicked it will bring the user to the relevant one for the club (opened in a new tab). At the moment the club only has a facebook and instagram so some of the buttons lead to the websites homepage.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of the footer mobile](/documentation/features/footer-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of the footer desktop](/documentation/features/footer-desktop.png)
+
+</details>
 
 ## Home Page
 
 The homepage of the websites tries to accomplish the two main tasks of the site immediately, which is to get the user to book an art class and to keep the user engaged within the art class community. The user is met with a hero image on the homepage, a picture of my son Jake enthralled in his messy, very fun art play. I choose this image to immediately try to convey the idea behind the club, which is to have fun doing and fall in love with art. Overlayed on top of the image is a book now button which will direct the users to the book a class page when pressed or the log in page if not logged in. Just under the hero image is a brief welcome message, which again contains a book now link but one that is much more subtile way, so as not to push the idea too strongly on the user. The final section of the homepage is a recent news section, which presents the user with the 4 most recent post that have been added to the club news section of the website. This ensures that if apprehensive about booking with the club the user can visit the posts to see what goes on behind the scenes. It also give returning users immediate access to the latest happenings in the club.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/home-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/home-desktop.png)
+
+</details>
 
 ## About Us Page
 
 The about us page is a simple informational page which gives the user information regarding the club, its teacher and the class structure. It also contains find us section with a google map interface. Throughout the about us page text, various links are subtly placed to again prompt the user to book a class.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/about-us-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features//about-us-desktop.png)
+
+</details>
 
 ## Sign up Page
 
 This page allows the user to create a new account. The page contains a form with fields for username, email, password and password again, followed by a sign up button. Once filled out correctly and the button is pressed the users new account and profile will be created and the user will be redirected to the home page. The sign up page also contains a link for sign in incase the user already has an account.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/sign-up-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/sign-up-desktop.png)
+
+</details>
 
 ## Sign in Page
 
 This page allows the user to log into their account. The page contains a form with fields for username and password , followed by a sign in button. Once filled out correctly and the button is pressed the users will be logged in and redirected to the home page. The sign up page also contains a link for sign up incase the user does not already have an account.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/sign-in-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/sign-in-desktop.png)
+
+</details>
 
 ## Log out Page
 
 This page allows the user to log out of their account. The page contains a message asking the user to confirm the sign out, followed by a sign out button. Once the button is pressed the users will be logged out and redirected to the home page.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/log-out-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/log-out-desktop.png)
+
+</details>
 
 ## Profile Page
 
@@ -518,21 +586,31 @@ The profile page contains the following,
 -   My liked posts
     This contains a paginated list of all the users liked posts. All posts in the list can be clicked to view the post and provide feedback to the user on hover.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/profile-mobile.png)
 ![Image of  mobile](/documentation/features/my-booking-mobile.png)
 ![Image of  mobile](/documentation/features/my-liked-posts-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/profile-desktop.png)
+
+</details>
 
 ## Empty profile
 
 When a profile does not contain content, the location of the content will be replaced with text and buttons prompting the user to update their information, book a class or visit the club news section. The buttons are removed and text changed if an empty profile is viewed by a user that does not own it.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 #### Profile owner view
 
@@ -542,7 +620,11 @@ When a profile does not contain content, the location of the content will be rep
 
 ![Image of  desktop](/documentation/features/empty-profile-other-user-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 #### Profile owner view
 
@@ -552,101 +634,167 @@ When a profile does not contain content, the location of the content will be rep
 
 ![Image of  desktop](/documentation/features/empty-profile-other-user-desktop.png)
 
+</details>
+
 ## Edit Info Page
 
 When the edit your info button is pressed from the users profile the edit info form is shown. This form contains the fields first name, last name and email. All fields must be completed correctly for the form to be submitted and all fields contain, help text and validation. All the fields will be prepopulated with the users current info and can be edited by the user. The form contains a button to update the users info which will update the information and redirect the user to their profile page.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/edit-info-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/edit-info-desktop.png)
+
+</details>
 
 ## Edit Profile Page
 
 When the edit your profile button is pressed from the users profile the edit profile form is shown. This form contains the a button to update the users profile image and a textfield for the users to edit their about me section. All the fields will be prepopulated with the users current info and can be edited by the user. The form contains a button to update the users info which will update the information and redirect the user to their profile page.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/edit-profile-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/edit-profile-desktop.png)
+
+</details>
 
 ## Edit Booking Page
 
 When the edit booking icon is pressed from the users profile the edit booking form is shown. This form contains fields for the art class selection (selection of available classes) the child's name, a contact number, an emergency contact name and emergency contact number. All the fields will be prepopulated with the users current info and can be edited by the user. The form contains a button to update the booking which will update the booking and redirect the user to their profile page.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/edit-booking-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/edit-booking-desktop.png)
+
+</details>
 
 ## Delete Booking Modal
 
 When the delete booking icon is pressed from the profile page the user will be presented with the delete booking modal asking them to confirm the booking deletion. Once the user confirms the deletion they will be redirected to their profile page and the booking will be deleted.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/delete-booking-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/delete-booking-desktop.png)
+
+</details>
 
 ## Visit Users Profiles
 
 Users can visit each others profiles by clicking on the username in any comment that the user has left. When visiting another users profile no info will be shown regarding the users booking and no interactivity to edit or change anything will be available. The interactivity such as editing info and bookings is removed on the front end and protection is added to the functionality on the back end to ensure no interaction with a users profile is possible unless the user viewing the profile is the owner themselves and they are logged in.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/other-profile-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/other-profile-desktop.png)
+
+</details>
 
 ## Book A Class Page
 
 The book a class page consists of a brief explanation of the art classes and a form that allows a user to make an art class booking for their child. The form contains a field for art class selection. This is a dropdown containing all the art classes created by the admin in the backend, which still have available space (20 places per class). It also contains fields for child's name, a contact number, and emergency contact and an emergency contact number. All fields contain custom validation and help text. When the form is filled out correctly it can be submitted using the create booking button at the end of the form. Once pressed the booking will be created and the user will be redirected to their profile page where they can immediately see details of the booking. Due to the fact that each booking is made for a particular class set and the class terms are months apart, I decided that the user should fill out the information each time and that I would not save the information and prepopulated the form. This would ensure the information is correct and up to date for each booking. Bookings made may also be for different children or have different emergency contacts or numbers and due to this if I prepopulated the fields the user may have to delete the data before filling out the form, which would lead to bad UX.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/book-class-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/book-class-desktop.png)
+
+</details>
 
 ## Bookings Limit
 
 A booking limit feature has been added to the art classes on the website. This will remove classes from the dropdown list of available classes on the book a class form when they are full (20 booking reached). If for any reason all classes have been filled the art class form field will be disabled and custom HTML will be injected into the form label and help text to inform the user of this. The form can no longer be submitted an user will be asked to try again later.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/classes-full-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/classes-full-desktop.png)
+
+</details>
 
 ## Club News Page
 
 The club news page consists of some brief club news text followed by a list of paginated club posts previews, showing 4 posts previews per page. The post previews were another opportunity to add colour to the website in the form of an opaque overlay which contains the post title and in the case of the most recent post its description text. As the posts previews are rendered dynamically, the overlays will rotate through a list of four colours applying them dynamically to each preview. All post previews have feedback in the form of a size change and brightness increase when hovered over. When a post preview is clicked it will direct the user to the selected posts detailed view.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/club-news-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/club-news-desktop.png)
+
+</details>
 
 ## News Post Page
 
@@ -663,27 +811,43 @@ The post detail page consists of the following,
 -   User comments for the post.
     This shows all approved comments made by all users on this post. Each comment contains the comment text, the username of the user who made the comment and the time and date of the comment. The username is a clickable link which provided feedback and displays the corresponding users profile when pressed.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/club-news-post-mobile.png)
 ![Image of  mobile](/documentation/features/club-news-post-imgs-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/club-news-post-desktop.png)
 ![Image of  mobile](/documentation/features/club-news-post-imgs-desktop.png)
+
+</details>
 
 ## Contact Us Page
 
 The contact use page consists of a form with three fields, which are name, email and message. This form lets users (regardless of login status) send a message directly to the art clubs email address. If the user is logged in the name and email address field will be populated with the data from their user account. Email is optional when signing up so this will only be populated if the user has updated this on their profile info. This ensure good UX as the user will never be asked to enter info which they have already provided us with. The form contains validation and help text and a button for sending the email. Once the form has been filled out correctly and the send button is pressed, an email will be sent to the club gmail account using the django send mail functionality. The user will be redirected to the home page an a message will be displayed informing them that their message has been received.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/contact-us-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/contact-us-desktop.png)
+
+</details>
 
 ## Messaging
 
@@ -705,31 +869,53 @@ Messaging has been added to the website for all user interactions. The messages 
 -   Updating their info
 -   Error messages will also be shown if a user accesses website functionality such as sending comments when not logged in.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/messaging-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/messaging-desktop.png)
+
+</details>
 
 ## Error Pages
 
 Error pages were created for the most common website errors, 400, 401, 403, 404, 500 and 503. Each page has full header and footer functionality, an explanation of the error that occurred and a home button to allow the user to easily return to a safe page.
 
-### Mobile
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Mobile </summary>
 
 ![Image of  mobile](/documentation/features/error-mobile.png)
 
-### Desktop
+</details>
+
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
 
 ![Image of  desktop](/documentation/features/error-desktop.png)
+
+</details>
 
 ## Admin Panel
 
 The admin panel has been configured for superuser use, to perform CRUD functionality on all elements of the website. Admins can also carry out tasks such as publishing or archiving posts, and modifying the status of comments and the payment status of bookings. It also serves the purpose of post creation and art class creation. During a post creation any images uploaded are automatically converted to webp format and uploaded at 75% quality to ensure they do not effect website performance.
 
+<details>
+
+<summary style="font-size: 20px; font-weight: bold;">Desktop</summary>
+
 ![Image of  desktop](/documentation/features/django-panel.png)
+
+</details>
 
 ## Future Implementations
 
